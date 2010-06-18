@@ -1,0 +1,58 @@
+/*
+ * YUI Resect CSS version: 2.2.2 
+ * Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+ * Licensed under the BSD License: http://developer.yahoo.net/yui/license.txt
+ */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,optgroup,button,p,blockquote,th,td{margin:0;padding:0;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}table{border-collapse:collapse;border-spacing:0;}caption,th{text-align:left;}ol,ul{list-style:none;}fieldset,img{border:0;}input,textarea,select,optgroup,option,button{font-family:inherit;font-size:100%;}button,input {width: auto;overflow: visible;}optgroup,address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;}
+dl li{list-style: none;}
+
+a:link{outline: none; color: #000; text-decoration: none; transition: color .2s linear;	-webkit-transition: color .2s linear; -moz-transition: color .2s linear;}
+a:visited{outline: none; color: #000; text-decoration: none;}
+a:hover{outline: none; color: #000; text-decoration: none; transition: color .2s linear;	-webkit-transition: color .2s linear; -moz-transition: color .2s linear;}
+a:active{outline: none; color: #000; text-decoration: none;}
+
+.clear{ clear: both;}
+@font-face { font-family: "LeagueGothic"; src: url(../fonts/LeagueGothic.otf) format("opentype"); }
+
+body { background: #3E3623; font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; color: #FFF; }
+
+#header { width: 960px; height: 65px; margin: 0 auto; padding-top: 30px; border-bottom: #CFAC6C 1px dashed; }
+h1 { width: 342px; height: 40px; }
+h1 a{ background: url(../images/act-logo.jpg) top left no-repeat; width: 342px; height: 40px; text-indent: -9999em; display: block;}
+
+#pageTop { width: 940px; margin: 0 auto 30px; padding-top: 15px; }
+#intro { background: url(../images/intro.jpg) top left no-repeat; display: block; width: 250px; height: 420px; margin: 18px 0 5px 0; text-indent: -9999em; }
+#capitol { float: right; margin-top: 18px; }
+#pageTop span { color: #CFAC6C; }
+
+#seven {font-size: 30px; }
+#eight {font-size: 135%; display: block; margin-top: 10px; }
+#nine {font-size: 127%; line-height: 160%;}
+#ten {font-size: 98%; line-height: 95%; }
+
+#numbers { width: 940px; margin-top: 12px; line-height: 150%; text-align: justify; word-spacing: .3em; }
+
+#emailWrapper { background: #A53F31;  padding: 14px 0; }
+#email { text-align: center; }
+#signUp {font-size: 110%; display: block; padding-top: 5px; }
+#signUp a { color: #CFAC6C; font-weight: bold; }
+#signUp a:hover { color: #FFF; }
+#signUpBox { width: 300px; margin: 0 24px; float: left;  }
+.submit { background: url(../images/btn-submit.jpg) top left no-repeat; display: block; width: 71px; height: 24px; border: 0px; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; text-indent: -9999em; float: left; }
+.submit:hover { background: url(../images/btn-submit.jpg) left -24px no-repeat; }
+
+#goals { width: 940px; padding-top: 30px; margin: 0 auto; }
+h2 { font-family: "LeagueGothic"; color: #CFAC6C; font-size: 300%; margin-bottom: 5px; }
+#goals li { background: url(../images/lines.jpg) top left no-repeat; width: 160px; min-height: 185px; float: left; padding-top: 20px; font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 90%; }
+#goals li.push { margin-right: 100px;}
+.dropcap { float: left; font-style: normal; color: #CFAC6C; font-size: 300%; line-height: 0.7em; margin-right: 0.1em; margin-bottom:-0.25em; }
+
+#contactWrapper { background: #CFAC6C; padding: 20px 0 15px 0; }
+#contact { width: 960px; margin: 0 auto; color: #3E3623; line-height: 200%; text-align: center; font-size: 90%; }
+h3 { font-family: "LeagueGothic"; font-size: 140%; display: block; }
+#contact a { color: #FFF; font-style: italic; font-weight: bold; }
+#contact a:hover { color: #A53F31; }
+
+#footer { width: 960px; margin: 0 auto; height: 97px; padding-top: 28px; }
+#sunlight { background: url(../images/sunlight-logo.jpg) top left no-repeat; display: block; width: 140px; height: 63px; float: left; text-indent: -9999em; margin-right: 30px }
+#footerText { color: #CFAC6C; display: block; width: 790px; float: left; padding-top: 8px; line-height: 150%; font-size: 85%; }

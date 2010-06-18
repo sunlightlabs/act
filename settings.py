@@ -46,7 +46,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'mediasync',
+    'feedinator',
 )
+
+MEDIASYNC_AWS_KEY = '***REMOVED***'
+MEDIASYNC_AWS_SECRET = '***REMOVED***'
+MEDIASYNC_AWS_BUCKET = 'assets.sunlightfoundation.com'
+MEDIASYNC_AWS_PREFIX = 'act/1.0'
 
 try:
     from local_settings import *
