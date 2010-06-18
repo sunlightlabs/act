@@ -1,7 +1,16 @@
 {% extends "base.html" %}
+{% load feeds %}
 {% load media %}
 
 {% block content %}
+
+	{% comment %}
+	<a href="{% url post_detail latest_post.date_published.year latest_post.slug %}">{{ latest_post.title }}</a>
+	{{ latest_post.content|safe }}
+	{% endcomment %}
+	
+	{% headlines "thedayinsunlight" 4 %}
+	
 	<div id="pageTop"> 
 		<img id="capitol" alt="picture of the capitol" src="{% media_url %}/images/capitolweb.jpg"/> 
 		<span id="intro">The Advisory Committee on Transparency shares ideas with members of The Transparency Caucus and educates policymakers on</span> 

@@ -56,3 +56,23 @@ h3 { font-family: "LeagueGothic"; font-size: 140%; display: block; }
 #footer { width: 960px; margin: 0 auto; height: 97px; padding-top: 28px; }
 #sunlight { background: url(../images/sunlight-logo.jpg) top left no-repeat; display: block; width: 140px; height: 63px; float: left; text-indent: -9999em; margin-right: 30px }
 #footerText { color: #CFAC6C; display: block; width: 790px; float: left; padding-top: 8px; line-height: 150%; font-size: 85%; }
+
+
+.hentry .entry-title {
+	color: #A43E30;
+	font-size: 140%;
+	font-weight: bold;
+}
+.hentry .entry-content { font-size: 90%; font-weight: normal; line-height: 1.4em; }
+.hentry .entry-content a { color: #CFAC6C; }
+.hentry .entry-content p { margin: 1em 0; }
+.hentry .entry-content ul,
+.hentry .entry-content ol {
+	list-style: disc outside none;
+	margin-left: 1em;
+}
+
+.hentry .entry-content ul li,
+.hentry .entry-content ol li {
+	margin: 1em 0 1em 1em;
+}

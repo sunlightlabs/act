@@ -1,0 +1,5 @@
+<ol>
+	{% for entry in entries %}
+		<li><a href="{% url post_detail entry.date_published.year entry.slug %}">{{ latest_post.title }}</a></li>
+	{% endfor %}
+</ol>

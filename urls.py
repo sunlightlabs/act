@@ -6,7 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'index.html'}),
+    url(r'^blog/(?P<year>\d{4})/(?P<slug>[0-9a-zA-Z_\-]+)/$', 'act.views.post_detail', name='post_detail'),
+    url(r'^$', 'act.views.index', name='index'),
 )
 
 if settings.DEBUG:
