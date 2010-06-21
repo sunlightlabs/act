@@ -11,7 +11,7 @@
 		<!--[if IE 6]>{% css "styles/buggy.css" %}<![endif]--> 
 		<!--[if IE 7]>{% css "styles/buggy7.css" %}<![endif]--> 
 </head> 
-<body> 
+<body id="{% block bodyid %}act{% endblock %}"> 
 	<div id="header"> 
 		<h1>
 			<a href="/">
@@ -20,7 +20,13 @@
 			</a>
 		</h1> 
 	</div> <!-- end header --> 
-	{% block content %}{% endblock %}
+	{% block header %}{% endblock %}
+	<div id="mainest-container">
+		<div id="main-container">
+			{% block content %}{% endblock %}
+			<div class="clear"></div>
+		</div>
+	</div>
 	<div class="clear"></div> 
 	<div id="contactWrapper"> 
 		<div id="contact"> 

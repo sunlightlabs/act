@@ -2,15 +2,9 @@
 {% load feeds %}
 {% load media %}
 
-{% block content %}
+{% block bodyid %}index{% endblock %}
 
-	{% comment %}
-	<a href="{% url post_detail latest_post.date_published.year latest_post.slug %}">{{ latest_post.title }}</a>
-	{{ latest_post.content|safe }}
-	{% endcomment %}
-	
-	{% headlines "thedayinsunlight" 4 %}
-	
+{% block header %}
 	<div id="pageTop"> 
 		<img id="capitol" alt="picture of the capitol" src="{% media_url %}/images/capitolweb.jpg"/> 
 		<span id="intro">The Advisory Committee on Transparency shares ideas with members of The Transparency Caucus and educates policymakers on</span> 
@@ -21,20 +15,36 @@
 			<span id="signUp">Sign-up for Committee Event updates at <a href="mailto:ACT@sunlightfoundation.com">ACT@sunlightfoundation.com.</a></span> 
 		</div> <!-- end email --> 
 		<div class="clear"></div> 
-	</div> <!-- end emailWrapper --> 
-	<div id="goals"> 
+	</div> <!-- end emailWrapper -->
+{% endblock %}
+
+{% block content %}	
+	<div id="goals">
+		<h2>Upcoming Event</h2>
+		<p>asdfsaf</p>
+	
 		<h2>Goals</h2> 
 		<ul> 
-			<li class="push"><span class="dropcap">P</span>romoting transparency in all institutions of the federal government, including Congress, by making the work of government available to the public on the Internet.</li> 
-			<li class="push"><span class="dropcap">M</span>aximizing the openness 
-of government and participation by the people.</li> 
-			<li class="push"><span class="dropcap">P</span>reventing and rooting 
-out corruption and the appearance of corruption.</li> 
+			<li><span class="dropcap">P</span>romoting transparency in all institutions of the federal government, including Congress, by making the work of government available to the public on the Internet.</li> 
+			<li><span class="dropcap">M</span>aximizing the openness of government and participation by the people.</li> 
+			<li><span class="dropcap">P</span>reventing and rooting out corruption and the appearance of corruption.</li> 
 			<li><span class="dropcap">F</span>ostering improved oversight of government decisions and actions.</li> 
-			<li class="push"><span class="dropcap">R</span>educing opportunities for and occurrence of waste, fraud and abuse in all branches of the government.</li> 
-			<li class="push"><span class="dropcap">D</span>eveloping standards for openness, transparency and accountability.</li> 
-			<li class="push"><span class="dropcap">P</span>roviding a forum where concerns about transparency may be raised.</li> 
+			<li><span class="dropcap">R</span>educing opportunities for and occurrence of waste, fraud and abuse in all branches of the government.</li> 
+			<li><span class="dropcap">D</span>eveloping standards for openness, transparency and accountability.</li> 
+			<li><span class="dropcap">P</span>roviding a forum where concerns about transparency may be raised.</li> 
 			<li><span class="dropcap">P</span>romoting the education of members of Congress and their staff on transparency-related issues.</li> 
 		</ul> 
 	</div> <!-- end goals --> 
+	<div id="blog">
+		<div class="hentry">
+			<h2>{{ latest_post.title }}</h2>
+			<p class="meta">Posted on {{ latest_post.date_published }} by {{ latest_post.author_name }}</p>
+			<div class="entry-content">
+				{{ latest_post.content|safe }}
+			</div>
+		</div>
+		<a href="{% url post_detail latest_post.date_published.year latest_post.slug %}" id="more-posts">
+			Read more blog posts in the archive
+		</a>
+	</div>
 {% endblock %}

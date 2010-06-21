@@ -1,12 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div id="pageTop">
+	<div id="goals">
+		<h2>Archived Posts</h2> 
+		<ul id="archived-posts"> 
+			{% for entry in entries %}
+				<li><a href="{% url post_detail entry.date_published.year entry.slug %}">{{ entry.title }}</a></li>
+			{% endfor %}
+		</ul> 
+	</div> <!-- end goals --> 
+	<div id="blog">
 		<div class="hentry">
-			<h1 class="entry-title">{{ post.title }}</h1>
+			<h2>{{ post.title }}</h2>
+			<p class="meta">Posted on {{ post.date_published }} by {{ post.author_name }}</p>
 			<div class="entry-content">
 				{{ post.content|safe }}
 			</div>
 		</div>
+		<a href="{{ post.link }}" id="more-posts">
+			Comment at the Open House Project blog
+		</a>
 	</div>
 {% endblock %}

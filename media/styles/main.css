@@ -16,9 +16,11 @@ a:active{outline: none; color: #000; text-decoration: none;}
 
 body { background: #3E3623; font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; color: #FFF; }
 
-#header { width: 960px; height: 65px; margin: 0 auto; padding-top: 30px; border-bottom: #CFAC6C 1px dashed; }
+#header { width: 960px; height: 65px; margin: 0 auto; padding-top: 30px; }
+body#index #header { border-bottom: #CFAC6C 1px dashed; }
 h1 { width: 342px; height: 40px; }
 h1 a{ background: url(../images/act-logo.jpg) top left no-repeat; width: 342px; height: 40px; text-indent: -9999em; display: block;}
+h2 { font-family: "LeagueGothic"; color: #CFAC6C; font-size: 300%; margin-bottom: 5px; }
 
 #pageTop { width: 940px; margin: 0 auto 30px; padding-top: 15px; }
 #intro { background: url(../images/intro.jpg) top left no-repeat; display: block; width: 250px; height: 420px; margin: 18px 0 5px 0; text-indent: -9999em; }
@@ -41,11 +43,24 @@ h1 a{ background: url(../images/act-logo.jpg) top left no-repeat; width: 342px; 
 .submit { background: url(../images/btn-submit.jpg) top left no-repeat; display: block; width: 71px; height: 24px; border: 0px; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; text-indent: -9999em; float: left; }
 .submit:hover { background: url(../images/btn-submit.jpg) left -24px no-repeat; }
 
-#goals { width: 940px; padding-top: 30px; margin: 0 auto; }
-h2 { font-family: "LeagueGothic"; color: #CFAC6C; font-size: 300%; margin-bottom: 5px; }
-#goals li { background: url(../images/lines.jpg) top left no-repeat; width: 160px; min-height: 185px; float: left; padding-top: 20px; font-family: Georgia, "Times New Roman", serif; font-style: italic; font-size: 90%; }
-#goals li.push { margin-right: 100px;}
-.dropcap { float: left; font-style: normal; color: #CFAC6C; font-size: 300%; line-height: 0.7em; margin-right: 0.1em; margin-bottom:-0.25em; }
+#mainest-container { background-color: #F5EFEF; border-top: #A53F31 6px solid; color: #79694F; width: 100%; }
+body#index #mainest-container { border-top: 0; }
+#mainest-container h2 { color: #413622; }
+#main-container { width: 940px; margin: 0 auto; padding-bottom: 30px; }
+
+#goals { width: 290px; padding-top: 30px; margin: 0 auto; float: right; }
+#goals li {
+	line-height: 1.4em;
+	margin: 10px 0 20px 0;
+	font-family: Georgia, "Times New Roman", serif;
+	font-style: italic;
+	font-size: 90%;
+}
+body#index #goals { float: left; }
+body#index #goals li { margin: 0 30px 10px 0; }
+.dropcap { float: left; font-style: normal; color: #CFAC6C; font-size: 300%; line-height: 1.0em; margin-right: 0.15em; margin-bottom:-0.25em; }
+
+#blog { width: 600px; padding-top: 30px; margin: 0 30px 0 0; float: left; }
 
 #contactWrapper { background: #CFAC6C; padding: 20px 0 15px 0; }
 #contact { width: 960px; margin: 0 auto; color: #3E3623; line-height: 200%; text-align: center; font-size: 90%; }
@@ -57,11 +72,18 @@ h3 { font-family: "LeagueGothic"; font-size: 140%; display: block; }
 #sunlight { background: url(../images/sunlight-logo.jpg) top left no-repeat; display: block; width: 140px; height: 63px; float: left; text-indent: -9999em; margin-right: 30px }
 #footerText { color: #CFAC6C; display: block; width: 790px; float: left; padding-top: 8px; line-height: 150%; font-size: 85%; }
 
+#more-posts { color: #A53F31; }
+#archived-posts a, #archived-posts a:link { color: #A53F31; }
 
+.hentry { margin-bottom: 40px; }
 .hentry .entry-title {
 	color: #A43E30;
 	font-size: 140%;
 	font-weight: bold;
+}
+.hentry .meta {
+	font-family: Georgia, "Times New Roman", serif;
+	font-style: italic;
 }
 .hentry .entry-content { font-size: 90%; font-weight: normal; line-height: 1.4em; }
 .hentry .entry-content a { color: #CFAC6C; }

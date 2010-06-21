@@ -23,6 +23,7 @@ def index(request):
 
 def post_detail(request, year, slug):
     data = {
-        'post': get_object_or_404(FeedEntry, link__icontains=slug),
+        'post': add_slug(get_object_or_404(FeedEntry, link__icontains=slug)),
+        'entries': (add_slug(e) for e in FeedEntry.objects.all()),
     }
     return render_to_response('blog/post_detail.html', data)
