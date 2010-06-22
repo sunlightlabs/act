@@ -20,7 +20,7 @@ body { background: #3E3623; font-family: Helvetica, "Helvetica Neue", Arial, san
 body#index #header { border-bottom: #CFAC6C 1px dashed; }
 h1 { width: 342px; height: 40px; }
 h1 a{ background: url(../images/act-logo.jpg) top left no-repeat; width: 342px; height: 40px; text-indent: -9999em; display: block;}
-h2 { font-family: "LeagueGothic"; color: #CFAC6C; font-size: 300%; margin-bottom: 5px; }
+h2 { font-family: "LeagueGothic"; color: #CFAC6C; font-size: 300%; margin-bottom: 10px; }
 
 #pageTop { width: 940px; margin: 0 auto 30px; padding-top: 15px; }
 #intro { background: url(../images/intro.jpg) top left no-repeat; display: block; width: 250px; height: 420px; margin: 18px 0 5px 0; text-indent: -9999em; }
@@ -51,7 +51,7 @@ body#index #mainest-container { border-top: 0; }
 #goals { width: 290px; padding-top: 30px; margin: 0 auto; float: right; }
 #goals li {
 	line-height: 1.4em;
-	margin: 10px 0 20px 0;
+	margin: 10px 0 15px 0;
 	font-family: Georgia, "Times New Roman", serif;
 	font-style: italic;
 	font-size: 90%;
@@ -72,8 +72,10 @@ h3 { font-family: "LeagueGothic"; font-size: 140%; display: block; }
 #sunlight { background: url(../images/sunlight-logo.jpg) top left no-repeat; display: block; width: 140px; height: 63px; float: left; text-indent: -9999em; margin-right: 30px }
 #footerText { color: #CFAC6C; display: block; width: 790px; float: left; padding-top: 8px; line-height: 150%; font-size: 85%; }
 
-#more-posts { color: #A53F31; }
+#more-posts { color: #A53F31; text-align: center; display: block; }
 #archived-posts a, #archived-posts a:link { color: #A53F31; }
+
+.vevent { margin-bottom: 60px; }
 
 .hentry { margin-bottom: 40px; }
 .hentry .entry-title {
