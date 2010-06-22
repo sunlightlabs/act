@@ -7,6 +7,7 @@
 			{% for entry in entries %}
 				<li><a href="{% url post_detail entry.date_published.year entry.slug %}">{{ entry.title }}</a></li>
 			{% endfor %}
+			<li><a href="http://www.theopenhouseproject.com/category/act/">Full archive on the Open House Project blog</a></li>
 		</ul> 
 	</div> <!-- end goals --> 
 	<div id="blog">
@@ -17,7 +18,7 @@
 				{{ post.content|safe }}
 			</div>
 		</div>
-		<a href="{{ post.link }}" id="more-posts">
+		<a href="{{ post.link }}" class="more-posts">
 			Comment at the Open House Project blog
 		</a>
 	</div>

@@ -64,7 +64,7 @@ body#index #goals li { margin: 0 30px 10px 0; }
 
 #contactWrapper { background: #CFAC6C; padding: 20px 0 15px 0; }
 #contact { width: 960px; margin: 0 auto; color: #3E3623; line-height: 200%; text-align: center; font-size: 90%; }
-h3 { font-family: "LeagueGothic"; font-size: 140%; display: block; }
+h3 { font-family: "LeagueGothic"; font-size: 140%; display: block; margin-bottom: 10px; }
 #contact a { color: #FFF; font-style: italic; font-weight: bold; }
 #contact a:hover { color: #A53F31; }
 
@@ -72,10 +72,12 @@ h3 { font-family: "LeagueGothic"; font-size: 140%; display: block; }
 #sunlight { background: url(../images/sunlight-logo.jpg) top left no-repeat; display: block; width: 140px; height: 63px; float: left; text-indent: -9999em; margin-right: 30px }
 #footerText { color: #CFAC6C; display: block; width: 790px; float: left; padding-top: 8px; line-height: 150%; font-size: 85%; }
 
-#more-posts { color: #A53F31; text-align: center; display: block; }
+a.more-posts { color: #A53F31; display: block; }
 #archived-posts a, #archived-posts a:link { color: #A53F31; }
 
 .vevent { margin-bottom: 60px; }
+.vevent p { font-size: 90%; font-weight: normal; line-height: 1.4em; margin: 5px 0 5px 0; }
+.vevent a { color: #CFAC6C; }
 
 .hentry { margin-bottom: 40px; }
 .hentry .entry-title {

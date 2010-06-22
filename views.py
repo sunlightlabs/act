@@ -18,12 +18,13 @@ def add_slug(post):
 def index(request):
     data = {
         'latest_post': add_slug(FeedEntry.objects.latest('date_published')),
+        'other_posts': (add_slug(e) for e in FeedEntry.objects.all()[1:4]),
     }
     return render_to_response('index.html', data)
 
 def post_detail(request, year, slug):
     data = {
         'post': add_slug(get_object_or_404(FeedEntry, link__icontains=slug)),
-        'entries': (add_slug(e) for e in FeedEntry.objects.all()),
+        'entries': (add_slug(e) for e in FeedEntry.objects.all()[:10]),
     }
     return render_to_response('blog/post_detail.html', data)

@@ -12,7 +12,7 @@
 	</div> <!-- end pageTop --> 
 	<div id="emailWrapper"> 
 		<div id="email"> 
-			<span id="signUp">Sign-up for Committee Event updates at <a href="mailto:ACT@sunlightfoundation.com">ACT@sunlightfoundation.com.</a></span> 
+			<span id="signUp">Sign-up for Committee Event updates at <a href="mailto:ACT@sunlightfoundation.com">ACT@sunlightfoundation.com</a></span> 
 		</div> <!-- end email --> 
 		<div class="clear"></div> 
 	</div> <!-- end emailWrapper -->
@@ -20,9 +20,12 @@
 
 {% block content %}	
 	<div id="goals">
-		<h2>Upcoming Event</h2>
+		<h2>Upcoming Events</h2>
 		<div class="vevent">
-			This is an upcoming event.
+			<h3>Transparency Made Easy</h3>
+			<p>2:00pm - 3:15pm on June 22, 2010</p>
+			<p>Rayburn House Office Building #2203</p>
+			<p><a href="http://www.theopenhouseproject.com/2010/06/18/transparency-made-easy-how-to-make-the-government-more-open-and-accountable/">View more information</a></p>
 		</div>
 	
 		<h2>Goals</h2> 
@@ -45,8 +48,20 @@
 				{{ latest_post.content|safe }}
 			</div>
 		</div>
-		<a href="{% url post_detail latest_post.date_published.year latest_post.slug %}" id="more-posts">
-			Read more blog posts in the archive
+		<ul>
+			{% for post in other_posts %}
+				<li class="hentry">
+					<h2>{{ post.title }}</h2>
+					<p class="meta">Posted on {{ post.date_published }} by {{ post.author_name }}</p>
+					<div class="entry-content">
+						{{ post.content|safe|truncatewords_html:30 }}
+						<a href="{% url post_detail post.date_published.year post.slug %}" class="more-posts">Read the rest of {{ post.title }}</a>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+		<a href="{% url post_detail latest_post.date_published.year latest_post.slug %}" class="more-posts">
+			Find more blog posts in the archive
 		</a>
 	</div>
 {% endblock %}
