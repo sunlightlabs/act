@@ -42,18 +42,36 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.comments',
     'django.contrib.contenttypes',
+    'django.contrib.markup',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'mediasync',
     'feedinator',
+    'tagging',
+    'blogdor',
+    'haystack',
+    'act.resources',
 )
 
 MEDIASYNC_AWS_KEY = '***REMOVED***'
 MEDIASYNC_AWS_SECRET = '***REMOVED***'
 MEDIASYNC_AWS_BUCKET = 'assets.sunlightfoundation.com'
 MEDIASYNC_AWS_PREFIX = 'act/1.0'
+
+# blogdor configuration
+BLOGDOR_POSTS_PER_PAGE = 10
+BLOGDOR_AUTHOR_GROUP = None
+BLOGDOR_FROM_EMAIL = 'bounce@%s'
+BLOGDOR_DEFAULT_MARKUP = 'markdown'
+#AKISMET_KEY = ''
+#GRAVATAR_DEFAULT = ''
+#GRAVATAR_SIZE = 96
+
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_SITECONF = 'act.search_sites'
 
 try:
     from local_settings import *
