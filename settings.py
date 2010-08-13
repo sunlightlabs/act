@@ -58,6 +58,12 @@ INSTALLED_APPS = (
     'act.resources',
 )
 
+EMAIL_HOST = "smtp.sunlightlabs.com"
+EMAIL_PORT = "25"
+EMAIL_HOST_USER = "smtpclient"
+EMAIL_HOST_PASSWORD = "mryogato"
+EMAIL_USE_TLS = True
+
 MEDIASYNC_AWS_KEY = '***REMOVED***'
 MEDIASYNC_AWS_SECRET = '***REMOVED***'
 MEDIASYNC_AWS_BUCKET = 'assets.sunlightfoundation.com'

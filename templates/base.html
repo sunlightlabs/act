@@ -10,8 +10,8 @@
 	</head>
 	<body class="{% block bodyclass %}home{% endblock %}">
 		<div id="header">
-			<form id="searchForm" action="." method="get">
-				<input id="id_search" class="transparent" type="text" name="skills"/>
+			<form id="searchForm" action="/search/" method="get">
+				<input id="id_search" class="transparent" type="text" name="q" value="{{ query }}" />
 				<button class="searchBtn" type="submit">
 					<span>Search</span>
 				</button>
@@ -23,7 +23,7 @@
 					<li><a id="nav_events" href="{% url event_index %}">Events</a></li>
 					<li><a id="nav_blog" href="{% url blogdor_archive %}">Blog</a></li>
 					<li><a id="nav_resources" href="{% url resource_list %}">Resources</a></li>
-					<li><a id="nav_contact" href="#">Contact</a></li>
+					<li><a id="nav_contact" href="/contact/">Contact</a></li>
 				</ul>
 				<div class="clear"></div>
 			</div>

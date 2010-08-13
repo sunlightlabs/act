@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load events %}
+{% load honeypot %}
+
+{% block bodyclass %}contact{% endblock %}
+
+{% block content %}
+	<div id="ltColumn">
+
+		{% if messages %}
+
+			<ul class="messages">
+				{% for message in messages %}
+					<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				{% endfor %}
+			</ul>
+
+		{% else %}
+
+			<div class="headerModule moduleLeft">
+				<h2>Contact Us</h2>
+			</div>
+			<div class="moduleLeft">
+				<form id="postForm" class="normalForm" action="/contact/" method="post">
+					
+					{% if form.errors %}
+						<dl class="errors">
+							{% for field, err in form.errors.iteritems %}
+								<dt>{{ field }}</dt>
+								<dd>{{ err }}</dd>
+							{% endfor %}
+						</dl>
+						<div class="clear"></div>
+					{% endif %}
+
+					{% for field in form.hidden_fields %}
+						{{ field }}
+					{% endfor %}
+					
+					{% csrf_token %}
+					{% render_honeypot_field %}
+					
+					<ul>
+						<li>
+							<label>Name</label>
+							<input id="id_name" class="transparent" type="text" name="name" value="{% if form.name.data %}{{ form.name.data }}{% endif %}" />
+						</li>
+						<li>
+							<label>Email</label>
+							<input id="id_email" class="transparent" type="text" name="email" value="{% if form.email.data %}{{ form.email.data }}{% endif %}" />
+						</li>
+						<li>
+							<label>URL</label>
+							<input id="id_url" class="transparent" type="text" name="url" value="{% if form.url.data %}{{ form.url.data }}{% endif %}" />
+						</li>
+						<li>
+							<label>Comment</label>
+							<textarea id="id_comment" class="textarea" rows="5" cols="32" name="comment">{% if form.comment.data %}{{ form.comment.data }}{% endif %}</textarea>
+						</li>
+						<li>
+							<button class="submitBtnBig" type="submit">
+								<span>Submit</span>
+							</button>
+						</li>
+					</ul>
+				</form>
+			</div>
+
+		{% endif %}
+
+	</div>
+	
+	<div id="rtColumn">
+		<h3>Upcoming Events</h3>
+		<div class="moduleRight withRss">
+			<a class="rss" href="{% url feed_upcoming_events %}">Subscribe to this RSS feed</a>
+			<div class="tip">Have a video of a past event that you’d like to share? Upload it <a href="#">here</a>.</div>
+			<ol id="events">
+				{% upcomingevents 3 %}
+					<li>
+						<h4>
+							<span class="dateNumber">{{ event.start_date|date:"d" }}</span>
+							{{ event.start_date|date:"F" }}
+						</h4>
+						<h5><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h5>
+						{% if event.start_time %}
+							<span>
+								{{ event.start_time|time:"g:i a" }}
+								{% if event.end_time %}
+									- {{ event.end_time|time:"g:i a" }}
+								{% endif %}
+							</span>
+						{% endif %}
+						{% if event.location %}
+							<span>{{ event.location }}</span>
+						{% endif %}
+					</li>
+				{% endupcomingevents %}
+			</ol>
+			<a class="viewMore" href="{% url event_index %}">View all past and upcoming events</a>
+		</div>
+	</div>
+	
+{% endblock %}

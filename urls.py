@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
 from act import feeds
+from act.hello.views import Hello
 
 admin.autodiscover()
 
@@ -9,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^(?P<year>\d{4})/(?P<slug>[0-9a-zA-Z_\-]+)/$', 'act.views.post_detail', name='post_detail'),
     url(r'^blog/', include('blogdor.urls')),
+    url(r'^contact/', Hello()),
     url(r'^events/', include('act.events.urls')),
     url(r'^resources/', include('act.resources.urls')),
     url(r'^search/', include('haystack.urls')),
