@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block bodyclass %}contact{% endblock %}
+
+{% block content %}
+	<div id="ltColumn">
+		<div class="headerModule moduleLeft">
+			<h2>Contact Us</h2>
+		</div>
+		<div class="moduleLeft">
+			<form id="postForm" class="normalForm" action="." method="get">
+				<ul>
+					<li>
+						<label>Name</label>
+						<input id="id_name" class="transparent" type="text" name="name"/>
+					</li>
+					<li>
+						<label>Email</label>
+						<input id="id_email" class="transparent" type="text" name="email"/>
+					</li>
+					<li>
+						<label>URL</label>
+						<input id="id_url" class="transparent" type="text" name="url"/>
+					</li>
+					<li>
+						<label>Comment</label>
+						<textarea id="id_comment" class="textarea" rows="5" cols="32" name="comment"></textarea>
+					</li>
+					<li>
+						<button class="submitBtnBig" type="submit">
+							<span>Submit</span>
+						</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+	<div id="rtColumn">
+		<h3>Upcoming Events</h3>
+		<div class="moduleRight withRss">
+			<a class="rss" href="#">Subscribe to this RSS feed</a>
+			<div class="tip">Have a video of a past event that you’d like to share? Upload it <a href="#">here</a>.</div>
+			<ol id="events">
+				<li>
+					<h4><span class="dateNumber">22</span> June</h4>
+					<h5><a href="#">Transparency Made Easy</a></h5>
+					<span>2:00 p.m. - 3:15 p.m.</span>
+					<span>Rayburn House Office Building #2203</span>
+				</li>
+			</ol>
+			<a class="viewMore" href="#">View all past and upcoming events</a>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+{% endblock %}

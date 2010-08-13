@@ -1,0 +1,72 @@
+{% extends "blogdor/base.html" %}
+{% load comments %}
+{% load markup %}
+{% load tagging_tags %}
+
+{% block blogdor_content %}
+	<div class="headerModule moduleLeft withMetaData">
+		<h2>{{ post.title }}</h2>
+	</div>
+	<div class="moduleLeft posts">
+		<dl>
+			<dt>Posted on</dt>
+			<dd>{{ post.date_published|date:"F j, Y" }},</dd>
+
+			<dt>Time</dt>
+			<dd>{{ post.date_published|time:"g:i a" }}</dd>
+
+			<dt>by</dt>
+			<dd>{{ post.author.get_full_name }}</dd>
+		</dl>
+		<div class="postContent clear">
+			{{ post.content|safe }}
+		</div>
+		
+		{% tags_for_object post as tags %}
+		{% if tags %}
+			<div id="tags">
+				<span>Tags:</span>
+				<ul>
+					{% for tag in tags %}
+						<li><a href="{% url blogdor_tag tag %}">{{ tag }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+		
+		
+		{% if post.is_published %}
+			{% get_comment_list for post as comment_list %}
+			{% if comment_list %}
+				<div id="comments">
+					<h3 class="commentHeader">Comments</h3>
+					<ol>
+						{% for comment in comment_list %}
+							<li id="comment_{{ comment.pk }}">
+								<span class="commentNumber">{{ forloop.counter }}</span>
+								<div class="commentMetaData">
+									<span>{{ comment.submit_date|date:"F j, Y" }}</span>
+									<span>{{ comment.submit_date|time:"g:i a" }}</span>
+								</div>
+								<div class="commentContent">
+									<span>
+										{% if comment.user_url %}
+											<a href="{{ comment.user_url }}">{{ comment.user_name }}</a>
+										{% else %}
+											{{ comment.user_name }}
+										{% endif %}
+									</span>
+									{{ comment.comment|markdown }}
+								</div>
+								<div class="clear"></div>
+							</li>
+						{% endfor %}
+					</ol>
+				</div>
+			{% endif %}
+			<h3 class="commentHeader">Let us know what you think</h3>
+			<p class="description">Have thoughts that might fuel this discussion further, post them below. (<a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a> is supported in comments.)</p>
+			{% render_comment_form for post %}
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "blogdor/base.html" %}
+{% load comments %}
+{% load honeypot %}
+
+{% block blogdor_content %}
+	<div class="moduleLeft posts">
+		<form id="postForm" class="normalForm" action="{% comment_form_target %}" method="post">
+
+			{% if form.errors %}
+				<p>The following fields have errors:</p>
+				<dl class="errors">
+					{% for field, err in form.errors.iteritems %}
+						<dt>{{ field }}</dt>
+						<dd>{{ err }}</dd>
+					{% endfor %}
+				</dl>
+				<div class="clear"></div>
+			{% endif %}
+
+			{% for field in form.hidden_fields %}
+				{{ field }}
+			{% endfor %}
+			{% csrf_token %}
+			{% render_honeypot_field %}
+
+			<ul>
+				<li>
+					<label for="id_name">Name</label>
+					<input id="id_name" class="transparent" type="text" name="name" value="{{ form.name.data }}" />
+				</li>
+				<li>
+					<label for="id_email">Email</label>
+					<input id="id_email" class="transparent" type="text" name="email" value="{{ form.email.data }}" />
+				</li>
+				<li>
+					<label for="id_url">URL</label>
+					<input id="id_url" class="transparent" type="text" name="url" value="{{ form.url.data }}" />
+				</li>
+				<li>
+					<label for="id_comment">Comment</label>
+					<textarea id="id_comment" class="textarea" rows="5" cols="32" name="comment">{{ form.comment.data }}</textarea>
+				</li>
+				<li>
+					<button class="commentBtn" type="submit">
+						<span>Comment</span>
+					</button>
+				</li>
+			</ul>
+
+		</form>
+	</div>
+{% endblock %}

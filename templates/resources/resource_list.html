@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block bodyclass %}resources{% endblock %}
 
-	<ol>
-		{% for res in object_list %}
-			<li><a href="{% url resource_detail res.slug %}">{{ res }}</a></li>
-		{% endfor %}
-	</ol>
-	
+{% block content %}
+	<div id="ltColumn">
+		<ol>
+			{% for res in object_list %}
+				<li><a href="{% url resource_detail res.slug %}">{{ res }}</a></li>
+			{% endfor %}
+		</ol>
+	</div>
+	<div id="rtColumn">
+	</div>
 {% endblock %}

@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block bodyclass %}events{% endblock %}
+
+{% block content %}
+	<div id="fullColumn">
+		<div class="headerModule moduleLeft rssFeed">
+			<h2 class="withFeed">Upcoming Events</h2>
+			<a class="rss" href="{% url feed_upcoming_events %}">Subscribe to this RSS feed</a>
+			<div class="clear"></div>
+		</div>
+		<div id="upcomingEvents" class="moduleLeft">
+			<ol id="events">
+				{% for event in upcoming %}
+					<li{% if forloop.last %} id="lastEvent"{% endif %}>
+						<h3>
+							<span class="dateNumber">{{ event.start_date|date:"d" }}</span>
+							{{ event.start_date|date:"F" }}
+						</h3>
+						<h4><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h4>
+						{% if event.start_time %}
+							<span>
+								{{ event.start_time|time:"g:i a" }}
+								{% if event.end_time %}
+									- {{ event.end_time|time:"g:i a" }}
+								{% endif %}
+							</span>
+						{% endif %}	
+						{% if event.location %}
+							<span>{{ event.location }}</span>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ol>
+			<div class="clear"></div>
+			<a class="viewMore" href="#">View All Upcoming Events</a>
+		</div>
+	</div>
+	<div id="ltColumn">
+		<div class="headerModule moduleLeft">
+			<h2>Recent Events</h2>
+		</div>
+		<div class="moduleLeft">
+			<ol id="listEvents">
+				{% for event in recent %}
+					<li>
+						<h3>
+							<span class="dateNumber">{{ event.start_date|date:"d" }}</span>
+							{{ event.start_date|date:"F" }}
+						</h3>
+						<h4><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h4>
+						{% if event.description %}
+							<div>
+								{{ event.description|markdown }}
+							</div>
+						{% endif %}
+						{% if event.video_url %}
+							<div class="video">
+								<h5>Video:</h5>
+								<a href="{{ event.video_url }}">{{ event.video_url }}</a>
+								<div class="clear"></div>
+							</div>
+						{% endif %}
+						{% with event.press_releases.all as press_releases %}
+							{% if press_releases %}
+								<div class="pressReleases">
+									<h5>Press Releases:</h5>
+									<ul>
+										{% for pr in press_releases %}
+											<li><a href="{{ pr.url }}">{{ pr.released_by }}</a></li>
+										{% endfor %}
+									</ul>
+									<div class="clear"></div>
+								</div>
+							{% endif %}
+						{% endwith %}
+					</li>
+				{% endfor %}
+			</ol>
+			<a href="#">« Older Events</a>
+		</div>
+	</div>
+	<div id="rtColumn">
+		<h3>Find a Past Event</h3>
+		<div class="moduleRight">
+			<form id="filterForm" action="." method="get">
+				<ul>
+					<li>
+						<label>Topic</label>
+						<div class="scroll formModule">
+							<ul>
+								<li>
+									<label><input class="checkbox" type="checkbox" name="word" />All Topics</label>
+								</li>
+								<li>
+									<label><input class="checkbox" type="checkbox" name="word" />Topic</label>
+								</li>
+								<li>
+									<label><input class="checkbox" type="checkbox" name="word" />Topic</label>
+								</li>
+								<li>
+									<label><input class="checkbox" type="checkbox" name="word" />Topic</label>
+								</li>
+								<li>
+									<label><input class="checkbox" type="checkbox" name="word" />Topic</label>
+								</li>
+								<li>
+									<label><input class="checkbox" type="checkbox" name="word" />Topic</label>
+								</li>
+								<li>
+									<label><input class="checkbox" type="checkbox" name="word" />Topic</label>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<label>Date Range</label>
+						<select class="month" name="month">
+							<option value="month">Month</option>
+							<option value="january">January</option>
+							<option value="february">February</option>
+							<option value="march">March</option>
+							<option value="april">April</option>
+							<option value="may">May</option>
+							<option value="june">June</option>
+							<option value="july">July</option>
+							<option value="august">August</option>
+							<option value="september">September</option>
+							<option value="october">October</option>
+							<option value="november">November</option>
+							<option value="december">December</option>
+						</select>
+						<select class="year" name="year">
+							<option value="year">Year</option>
+							<option value="2010">2010</option>
+							<option value="2009">2009</option>
+							<option value="2008">2008</option>
+							<option value="2007">2007</option>
+							<option value="2006">2006</option>
+							<option value="2005">2005</option>
+							<option value="2004">2004</option>
+							<option value="2003">2003</option>
+							<option value="2002">2002</option>
+							<option value="2001">2001</option>
+							<option value="2000">2000</option>
+							<option value="1999">1999</option>
+						</select>
+						<span>to</span>
+						<select class="month" name="month">
+							<option value="month">Month</option>
+							<option value="january">January</option>
+							<option value="february">February</option>
+							<option value="march">March</option>
+							<option value="april">April</option>
+							<option value="may">May</option>
+							<option value="june">June</option>
+							<option value="july">July</option>
+							<option value="august">August</option>
+							<option value="september">September</option>
+							<option value="october">October</option>
+							<option value="november">November</option>
+							<option value="december">December</option>
+						</select>
+						<select class="year" name="year">
+							<option value="year">Year</option>
+							<option value="2010">2010</option>
+							<option value="2009">2009</option>
+							<option value="2008">2008</option>
+							<option value="2007">2007</option>
+							<option value="2006">2006</option>
+							<option value="2005">2005</option>
+							<option value="2004">2004</option>
+							<option value="2003">2003</option>
+							<option value="2002">2002</option>
+							<option value="2001">2001</option>
+							<option value="2000">2000</option>
+							<option value="1999">1999</option>
+						</select>
+					</li>
+					<li>
+						<button class="searchBtn" type="submit">
+							<span>Search</span>
+						</button>
+					</li>
+				</ul>
+			</form>
+			<div class="clear"></div>
+		</div>
+	</div>
+{% endblock %}

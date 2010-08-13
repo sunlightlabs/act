@@ -1,0 +1,31 @@
+{% extends "blogdor/base.html" %}
+
+{% block blogdor_content %}
+	<div class="posts">
+		<ul>
+			{% for post in post_list %}
+				<li>
+					<div class="headerModule moduleLeft withMetaData">
+						<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+					</div>
+					<div class="moduleLeft">
+						<dl>
+							<dt>Posted on</dt>
+							<dd>{{ post.date_published|date:"F j, Y" }},</dd>
+
+							<dt>Time</dt>
+							<dd>{{ post.date_published|time:"g:i a" }}</dd>
+
+							<dt>by</dt>
+							<dd>{{ post.author.get_full_name }}</dd>
+						</dl>
+						<div class="postContent clear">
+							{{ post.content|safe }}
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+		{% include 'blogdor/paginator.html' %}
+	</div>
+{% endblock %}

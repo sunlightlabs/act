@@ -1,0 +1,15 @@
+{% load markup %}
+<p>
+	{{ obj.start_date|date:"l, F j, Y" }}
+	{% if obj.start_time %}
+		{{ obj.start_time|time:"g:i a" }}{% if obj.end_time %} - {{ obj.end_time|time:"g:i a" }}{% endif %}
+	{% endif %}
+</p>
+{% if obj.location %}
+	<p>{{ obj.location }}</p>
+{% endif %}
+{% if obj.description %}
+	<div>
+		{{ obj.description|markdown }}
+	</div>
+{% endif %}

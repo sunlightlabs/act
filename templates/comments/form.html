@@ -1,0 +1,47 @@
+{% load comments %}
+{% load honeypot %}
+<form id="postForm" class="normalForm" action="{% comment_form_target %}" method="post">
+	
+	{% if form.errors %}
+		<ul class="errors">
+			{% for field in form.errors %}
+				<li>{{ field.label }} - {{ field.errors }}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	
+	{% for field in form.hidden_fields %}
+		{{ field }}
+	{% endfor %}
+	{% csrf_token %}
+	{% render_honeypot_field %}
+	
+	<ul>
+		<li>
+			{{ form.name.errors }}
+			<label for="id_name">Name</label>
+			<input id="id_name" class="transparent" type="text" name="name" value="{{ field.name.data }}" />
+		</li>
+		<li>
+			{{ form.email.errors }}
+			<label for="id_email">Email</label>
+			<input id="id_email" class="transparent" type="text" name="email" value="{{ field.email.data }}" />
+		</li>
+		<li>
+			{{ form.url.errors }}
+			<label for="id_url">URL</label>
+			<input id="id_url" class="transparent" type="text" name="url" value="{{ field.url.data }}" />
+		</li>
+		<li>
+			{{ form.comment.errors }}
+			<label for="id_comment">Comment</label>
+			<textarea id="id_comment" class="textarea" rows="5" cols="32" name="comment">{{ field.comment.data }}</textarea>
+		</li>
+		<li>
+			<button class="commentBtn" type="submit">
+				<span>Comment</span>
+			</button>
+		</li>
+	</ul>
+	
+</form>

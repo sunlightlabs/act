@@ -2,66 +2,119 @@
 {% load feeds %}
 {% load media %}
 
-{% block bodyid %}index{% endblock %}
+{% block bodyclass %}home{% endblock %}
 
-{% block header %}
-	<div id="pageTop"> 
-		<img id="capitol" alt="picture of the capitol" src="{% media_url %}/images/capitolweb.jpg"/> 
-		<span id="intro">The Advisory Committee on Transparency shares ideas with members of The Transparency Caucus and educates policymakers on</span> 
-		<span id="eight">transparency-related issues, problems and solutions. It does so by hosting events to discuss </span><span id="nine">important and wide-ranging transparency policy issues with experts from a variety of backgrounds.</span><span id="ten"> It develops educational publications and provides timely information to the public and members of Congress on its website.</span> 
-	</div> <!-- end pageTop --> 
-	<div id="emailWrapper"> 
-		<div id="email"> 
-			<span id="signUp">Sign-up for Committee Event updates at <a href="mailto:ACT@sunlightfoundation.com">ACT@sunlightfoundation.com</a></span> 
-		</div> <!-- end email --> 
-		<div class="clear"></div> 
-	</div> <!-- end emailWrapper -->
+{% block feature %}
+	<div id="featureBox">
+		<p>The Advisory Committee on Transparency shares ideas with members of the Congressional Transparency Caucus and educates policymakers on transparency-related issues, problems, and solutions.</p>
+		<p>It does so by hosting events to discuss important and wide-ranging transparency policy issues with experts from a variety of backgrounds. It develops educational publications and provides timely information to the public and members of Congress on its website.</p>
+	</div>
+	<div id="mailingList">
+		<form id="mailingForm" action="." method="get">
+			<input id="id_mailing" placeholder="Join the mailing list" class="transparent" type="text" name="skills"/>
+			<button class="submitBtn" type="submit">
+				<span>Submit</span>
+			</button>
+		</form>
+	</div>
 {% endblock %}
 
-{% block content %}	
-	<div id="goals">
-		<h2>Upcoming Events</h2>
-		<div class="vevent">
-			<h3>Transparency Made Easy</h3>
-			<p>2:00pm - 3:15pm on June 22, 2010</p>
-			<p>Rayburn House Office Building #2203</p>
-			<p><a href="http://www.theopenhouseproject.com/2010/06/18/transparency-made-easy-how-to-make-the-government-more-open-and-accountable/">View more information</a></p>
+{% block content %}
+	<div id="ltColumn">
+		<div class="headerModule moduleLeft rssFeed">
+			<h2 class="withFeed">Recent Posts</h2>
+			<a class="rss" href="#">Subscribe to this RSS feed</a>
+			<div class="clear"></div>
 		</div>
-	
-		<h2>Goals</h2> 
-		<ul> 
-			<li><span class="dropcap">P</span>romoting transparency in all institutions of the federal government, including Congress, by making the work of government available to the public on the Internet.</li> 
-			<li><span class="dropcap">M</span>aximizing the openness of government and participation by the people.</li> 
-			<li><span class="dropcap">P</span>reventing and rooting out corruption and the appearance of corruption.</li> 
-			<li><span class="dropcap">F</span>ostering improved oversight of government decisions and actions.</li> 
-			<li><span class="dropcap">R</span>educing opportunities for and occurrence of waste, fraud and abuse in all branches of the government.</li> 
-			<li><span class="dropcap">D</span>eveloping standards for openness, transparency and accountability.</li> 
-			<li><span class="dropcap">P</span>roviding a forum where concerns about transparency may be raised.</li> 
-			<li><span class="dropcap">P</span>romoting the education of members of Congress and their staff on transparency-related issues.</li> 
-		</ul> 
-	</div> <!-- end goals --> 
-	<div id="blog">
-		<div class="hentry">
-			<h2>{{ latest_post.title }}</h2>
-			<p class="meta">Posted on {{ latest_post.date_published }} by {{ latest_post.author_name }}</p>
-			<div class="entry-content">
-				{{ latest_post.content|safe }}
-			</div>
+		<div class="moduleLeft posts">
+			<ul>
+				{% for post in posts %}
+					<li>
+						<h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+						<dl>
+							<dt>Posted on</dt>
+							<dd>{{ post.date_published|date:"F j, Y" }},</dd>
+
+							<dt>Time</dt>
+							<dd>{{ post.date_published|time:"g:i a" }}</dd>
+
+							<dt>by</dt>
+							<dd>{{ post.author.get_full_name }}</dd>
+						</dl>
+						<div class="postContent clear">
+							{{ post.content|safe }}
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+			<a href="#">« Older Posts</a>
 		</div>
-		<ul>
-			{% for post in other_posts %}
-				<li class="hentry">
-					<h2>{{ post.title }}</h2>
-					<p class="meta">Posted on {{ post.date_published }} by {{ post.author_name }}</p>
-					<div class="entry-content">
-						{{ post.content|safe|truncatewords_html:30 }}
-						<a href="{% url post_detail post.date_published.year post.slug %}" class="more-posts">Read the rest of {{ post.title }}</a>
+	</div>
+	<div id="rtColumn">
+		<h3>Upcoming Events</h3>
+		<div class="moduleRight withRss">
+			<a class="rss" href="{% url feed_upcoming_events %}">Subscribe to this RSS feed</a>
+			<div class="tip">Have a video of a past event that you’d like to share? Upload it <a href="#">here</a>.</div>
+			<ol id="events">
+				{% for event in upcoming_events %}
+					<li>
+						<h4>
+							<span class="dateNumber">{{ event.start_date|date:"d" }}</span>
+							{{ event.start_date|date:"F" }}
+						</h4>
+						<h5><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h5>
+						{% if event.start_time %}
+							<span>
+								{{ event.start_time|time:"g:i a" }}
+								{% if event.end_time %}
+									- {{ event.end_time|time:"g:i a" }}
+								{% endif %}
+							</span>
+						{% endif %}	
+						{% if event.location %}
+							<span>{{ event.location }}</span>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ol>
+			<a class="viewMore" href="{% url event_index %}">View all past and upcoming events</a>
+		</div>
+		<h3 class="arrowHeader">Follow the Caucus</h3>
+		<div class="moduleRight">
+			<ul id="twitter">
+				<li>
+					<h4><a href="#">Twitter Name</a></h4>
+					<div class="tweetMetaData">
+						<a href="#">July 2, 2010</a>,
+						<span class="time">9:52 a.m.</span>
 					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
 				</li>
-			{% endfor %}
-		</ul>
-		<a href="{% url post_detail latest_post.date_published.year latest_post.slug %}" class="more-posts">
-			Find more blog posts in the archive
-		</a>
+				<li>
+					<h4><a href="#">Twitter Name</a></h4>
+					<div class="tweetMetaData">
+						<a href="#">July 2, 2010</a>,
+						<span class="time">9:52 a.m.</span>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
+				</li>
+				<li>
+					<h4><a href="#">Twitter Name</a></h4>
+					<div class="tweetMetaData">
+						<a href="#">July 2, 2010</a>,
+						<span class="time">9:52 a.m.</span>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
+				</li>
+				<li>
+					<h4><a href="#">Twitter Name</a></h4>
+					<div class="tweetMetaData">
+						<a href="#">July 2, 2010</a>,
+						<span class="time">9:52 a.m.</span>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
+				</li>
+			</ul>
+		</div>
 	</div>
 {% endblock %}

@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 {% load media %}
-<html> 
-	<head> 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="keywords" content="" /> 
-		<meta name="description" content="" /> 
-		<title>Advisory Committee on Transparency</title> 
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="" />
+		<meta name="description" content="The Advisory Committee on Transparency shares ideas with members of the Congressional Transparency Caucus and educates policymakers on transparency-related issues, problems, and solutions." />
+		<title>Advisory Committee on Transparency</title>
 		{% css "styles/main.css" %}
-		{% css "styles/mobile.css" "handheld, only screen and (max-device-width: 480px)" %}
-		<!--[if IE 6]>{% css "styles/buggy.css" %}<![endif]--> 
-		<!--[if IE 7]>{% css "styles/buggy7.css" %}<![endif]--> 
-</head> 
-<body id="{% block bodyid %}act{% endblock %}"> 
-	<div id="header"> 
-		<h1>
-			<a href="/">
-				<big>Advisory Committee on Transparency</big>
-				<small>A project of the Sunlight Foundation</small>
-			</a>
-		</h1> 
-	</div> <!-- end header --> 
-	{% block header %}{% endblock %}
-	<div id="mainest-container">
-		<div id="main-container">
-			{% block content %}{% endblock %}
+	</head>
+	<body class="{% block bodyclass %}home{% endblock %}">
+		<div id="header">
+			<form id="searchForm" action="." method="get">
+				<input id="id_search" class="transparent" type="text" name="skills"/>
+				<button class="searchBtn" type="submit">
+					<span>Search</span>
+				</button>
+			</form>
+			<h1><a href="/">Advisory Committee on Transparency</a></h1>
+			<div id="nav">
+				<ul>
+					<li><a id="nav_about" href="#">About</a></li>
+					<li><a id="nav_events" href="{% url event_index %}">Events</a></li>
+					<li><a id="nav_blog" href="{% url blogdor_archive %}">Blog</a></li>
+					<li><a id="nav_resources" href="{% url resource_list %}">Resources</a></li>
+					<li><a id="nav_contact" href="#">Contact</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			{% block feature %}{% endblock %}
 			<div class="clear"></div>
 		</div>
-	</div>
-	<div class="clear"></div> 
-	<div id="contactWrapper"> 
-		<div id="contact"> 
-			<h3>For more information about the Advisory Committee</h3><p>Please contact Daniel Schuman at 202-742-1520 x 273 or email <a href="mailto:ACT@sunlightfoundation.com">ACT@sunlightfoundation.com.</a> For recent news items, <a href="http://blog.sunlightfoundation.com/taxonomy/term/advisory-committee-on-transparency/">click here.</a> 
-			</p> 
-		</div> <!-- end contact --> 
-	</div> <!-- end contactWrapper --> 
-	<div id="footer"> 
-		<a href="http://www.sunlightfoundation.com" id="sunlight">Sunlight Foundation</a> 
-		<p id="footerText"><b>The Advisory Committee</b> is a private-sector organization and complies with all House and Senate rules. It is separate and distinct from the <b>Congressional Transparency Caucus,</b> a Congressional Member Organization. The Advisory Committee on Transparency is a project of the Sunlight Foundation.</p> 
-	</div> <!-- end footer --> 
-	<script type="text/javascript"> 
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script> 
-	<script type="text/javascript"> 
-		try {
-			var pageTracker = _gat._getTracker("UA-1265484-54");
-			pageTracker._trackPageview();
-		} catch(err) {}
-	</script> 
-</body> 
+		<div id="pageMain">
+			<div id="pageMain_interior">
+				{% block content %}{% endblock %}
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="footerWrapper">
+			<div id="footer">
+				<div id="moreInfo">
+					<span>Additional Information:</span>
+					<ul>
+						<li><a id="congressCaucus" href="#">Congressional Transparency Caucus</a></li>
+						<li><a href="#">Join the Open House Project</a></li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+				<div id="privacyPolicy">
+					<a href="http://www.sunlightfoundation.com" id="foundationLogo">Sunlight Foundation</a>
+					<p>The Advisory Committee on Transparency is a private-sector organization and complies with all House and Senate rules. It is separate and distinct from the Congressional Transparency Caucus, a Congressional Member Organization. The Advisory Committee on Transparency is a project of the Sunlight Foundation.</p>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try {
+				var pageTracker = _gat._getTracker("UA-1265484-54");
+				pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+	</body>
 </html>

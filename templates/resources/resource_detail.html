@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% load markup %}
 
-{% block content %}
+{% block bodyclass %}resources{% endblock %}
 
-	<h2>{{ object }}</h2>
-	
-	<div>
-		{{ object.content|markdown }}
+{% block content %}
+	<div id="fullColumn">	
+		<h2>{{ object }}</h2>
+		<div>
+			{{ object.content|markdown }}
+		</div>
+		<ol>
+			{% for post in object.posts %}
+				<li>
+					{% include "blogdor/post_preview.html" %}
+				</li>
+			{% endfor %}
+		</ol>
 	</div>
-	
-	<ol>
-		{% for post in object.posts %}
-			<li>
-				{% include "blogdor/post_preview.html" %}
-			</li>
-		{% endfor %}
-	</ol>
-	
 {% endblock %}

@@ -1,0 +1,11 @@
+{% extends "blogdor/base.html" %}
+
+{% block blogdor_content %}
+	<div class="moduleLeft posts">
+		<p>Thanks for your comment!</p>
+		<p>
+			<a href="{{ comment.content_object.get_absolute_url }}">Return to the original post</a> or
+			<a href="{{ comment.content_object.get_absolute_url }}#comment_{{ comment.pk }}">view your comment</a>.
+		</p>
+	</div>
+{% endblock %}

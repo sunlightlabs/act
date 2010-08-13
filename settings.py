@@ -51,8 +51,10 @@ INSTALLED_APPS = (
     'mediasync',
     'feedinator',
     'tagging',
+    'honeypot',
     'blogdor',
     'haystack',
+    'act.events',
     'act.resources',
 )
 
@@ -69,6 +71,8 @@ BLOGDOR_DEFAULT_MARKUP = 'markdown'
 #AKISMET_KEY = ''
 #GRAVATAR_DEFAULT = ''
 #GRAVATAR_SIZE = 96
+
+HONEYPOT_FIELD_NAME = 'zipcode'
 
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_SITECONF = 'act.search_sites'
