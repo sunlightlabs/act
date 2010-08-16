@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block title %}{{ flatpage.title }} - {{ block.super }}{% endblock %}
+
+{% block content %}
+
+	<div id="fullColumn">
+		<div class="headerModule moduleLeft">
+			<h2>{{ flatpage.title }}</h2>
+		</div>
+		<div class="moduleLeft">
+			{{ flatpage.content|markdown }}
+		</div>
+	</div>
+	<div class="clear"></div>
+
+{% endblock %}

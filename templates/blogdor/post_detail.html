@@ -3,6 +3,9 @@
 {% load markup %}
 {% load tagging_tags %}
 
+{% block meta_description %}{{ post.content|striptags|truncatewords:50 }}{% endblock %}
+{% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
+
 {% block blogdor_content %}
 	<div class="headerModule moduleLeft withMetaData">
 		<h2>{{ post.title }}</h2>
@@ -24,16 +27,15 @@
 		
 		{% tags_for_object post as tags %}
 		{% if tags %}
-			<div id="tags">
-				<span>Tags:</span>
-				<ul>
-					{% for tag in tags %}
-						<li><a href="{% url blogdor_tag tag %}">{{ tag }}</a></li>
-					{% endfor %}
-				</ul>
-			</div>
+		    <div>
+		        <span>Tags:</span>
+		        <ul>
+		            {% for tag in tags %}
+		            	<li><a href="{% url blogdor_tag tag %}">{{ tag }}</a></li>
+		            {% endfor %}
+		        </ul>
+		    </div>  
 		{% endif %}
-		
 		
 		{% if post.is_published %}
 			{% get_comment_list for post as comment_list %}
@@ -69,4 +71,24 @@
 			{% render_comment_form for post %}
 		{% endif %}
 	</div>
+{% endblock %}
+
+{% block blogdor_sidebar %}
+
+	{% with post.related_posts as related_posts %}
+		{% if related_posts %}
+			<h3>Related Posts</h3>
+			<div class="moduleRight">
+				<ol>
+					{% for p in related_posts|slice:":3" %}
+						<li>
+							<a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+							<span>{{ p.date_published }}</span>
+						</li>
+					{% endfor %}
+				<ol>
+			</div>
+		{% endif %}
+	{% endwith %}
+	
 {% endblock %}

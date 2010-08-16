@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load events %}
 
 {% block bodyclass %}blog{% endblock %}
 
@@ -8,12 +7,7 @@
 		{% block blogdor_content %}{% endblock %}
 	</div>
 	<div id="rtColumn">
-		<h3>Most Popular Topics</h3>
-		<div class="moduleRight">
-			<ol>
-			   <li><a href="#">Popular Topic #1</a></li>
-			<ol>
-		</div>
+		{% block blogdor_sidebar %}{% endblock %}
 		<!--
 		<h3 class="arrowHeader">Most Popular Posts</h3>
 		<div class="moduleRight">
@@ -22,33 +16,6 @@
 			<ol>
 		</div>
 		-->
-		<h3 class="arrowHeader">Upcoming Events</h3>
-		<div class="moduleRight withRss">
-			<a class="rss" href="{% url feed_upcoming_events %}">Subscribe to this RSS feed</a>
-			<div class="tip">Have a video of a past event that you’d like to share? Upload it <a href="#">here</a>.</div>
-			<ol id="events">
-				{% upcomingevents 3 %}
-					<li>
-						<h4>
-							<span class="dateNumber">{{ event.start_date|date:"d" }}</span>
-							{{ event.start_date|date:"F" }}
-						</h4>
-						<h5><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h5>
-						{% if event.start_time %}
-							<span>
-								{{ event.start_time|time:"g:i a" }}
-								{% if event.end_time %}
-									- {{ event.end_time|time:"g:i a" }}
-								{% endif %}
-							</span>
-						{% endif %}	
-						{% if event.location %}
-							<span>{{ event.location }}</span>
-						{% endif %}
-					</li>
-				{% endupcomingevents %}
-			</ol>
-			<a class="viewMore" href="{% url event_index %}">View all past and upcoming events</a>
-		</div>
+		{% include "includes/sidebar_upcomingevents.html" %}
 	</div>
 {% endblock %}

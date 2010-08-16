@@ -1,4 +1,5 @@
 from django.db import models
+from act.events.models import Event
 from blogdor.models import Post
 from tagging.models import Tag, TaggedItem
 
@@ -17,3 +18,8 @@ class Resource(models.Model):
     def posts(self):
         if self.tags:
             return TaggedItem.objects.get_by_model(Post, self.tags.all())
+    
+    def events(self):
+        if self.tags:
+            qs = TaggedItem.objects.get_by_model(Event, self.tags.all())
+            return qs.filter(is_public=True).order_by('-start_date', '-start_time')    

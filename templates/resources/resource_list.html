@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 
 {% block bodyclass %}resources{% endblock %}
+{% block title %}Resources - {{ block.super }}{% endblock %}
 
 {% block content %}
-	<div id="ltColumn">
-		<ol>
-			{% for res in object_list %}
-				<li><a href="{% url resource_detail res.slug %}">{{ res }}</a></li>
-			{% endfor %}
-		</ol>
+	<div id="fullColumn">
+		<div class="headerModule moduleLeft">
+			<h2>Resources</h2>
+		</div>
+		<div class="moduleLeft">
+			<ol>
+				{% for res in object_list %}
+					<li><a href="{% url resource_detail res.slug %}">{{ res }}</a></li>
+				{% endfor %}
+			</ol>
+		</div>
 	</div>
-	<div id="rtColumn">
-	</div>
+	<div class="clear"></div>
 {% endblock %}

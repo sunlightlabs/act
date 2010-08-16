@@ -33,7 +33,7 @@ def do_events(parser, token, queryset=None):
     m = re.search(r'(?P<tag>\w+)(?: (?P<count>\d{1,4}))?(?: as (?P<var_name>\w+))?', token.contents)
     args = m.groupdict()
     
-    if not queryset:
+    if queryset is None:
         queryset = Event.objects.all()
     
     if args['count']:

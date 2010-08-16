@@ -4,11 +4,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="keywords" content="" />
-		<meta name="description" content="The Advisory Committee on Transparency shares ideas with members of the Congressional Transparency Caucus and educates policymakers on transparency-related issues, problems, and solutions." />
-		<title>Advisory Committee on Transparency</title>
+		<meta name="description" content="{% block meta_description %}The Advisory Committee on Transparency shares ideas with members of the Congressional Transparency Caucus and educates policymakers on transparency-related issues, problems, and solutions.{% endblock %}" />
+		<title>{% block title %}Advisory Committee on Transparency{% endblock %}</title>
 		{% css "styles/main.css" %}
 	</head>
-	<body class="{% block bodyclass %}home{% endblock %}">
+	<body class="{% block bodyclass %}act{% endblock %}">
 		<div id="header">
 			<form id="searchForm" action="/search/" method="get">
 				<input id="id_search" class="transparent" type="text" name="q" value="{{ query }}" />
@@ -19,7 +19,7 @@
 			<h1><a href="/">Advisory Committee on Transparency</a></h1>
 			<div id="nav">
 				<ul>
-					<li><a id="nav_about" href="#">About</a></li>
+					<li><a id="nav_about" href="/about/">About</a></li>
 					<li><a id="nav_events" href="{% url event_index %}">Events</a></li>
 					<li><a id="nav_blog" href="{% url blogdor_archive %}">Blog</a></li>
 					<li><a id="nav_resources" href="{% url resource_list %}">Resources</a></li>
@@ -52,11 +52,12 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
+		{% block script %}{% endblock %}
+		<script>
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 		</script>
-		<script type="text/javascript">
+		<script>
 			try {
 				var pageTracker = _gat._getTracker("UA-1265484-54");
 				pageTracker._trackPageview();

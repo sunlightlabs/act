@@ -1,5 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.db import models
+from tagging.fields import TagField
 import datetime
 
 class EventManager(models.Manager):
@@ -7,13 +8,13 @@ class EventManager(models.Manager):
     def recent(self):
         now = datetime.datetime.now()
         return Event.objects.filter(
-            start_date__lte=now.date(), start_time__lte=now.time(), is_public=True
+            start_date__lt=now.date(), is_public=True
         ).order_by('-start_date')
     
     def upcoming(self):
         now = datetime.datetime.now()
         return Event.objects.filter(
-            start_date__gte=now.date(), start_time__gt=now.time(), is_public=True
+            start_date__gte=now.date(), is_public=True
         ).order_by('start_date')
 
 class Event(models.Model):
@@ -29,6 +30,8 @@ class Event(models.Model):
     video_url = models.URLField(verify_exists=False, blank=True, null=True)
     is_public = models.BooleanField(default=False)
     timestamp = models.DateTimeField(default=datetime.datetime.utcnow)
+    
+    tags = TagField()
     
     class Meta:
         ordering = ('-start_date', '-start_time')

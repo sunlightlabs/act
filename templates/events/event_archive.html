@@ -3,49 +3,14 @@
 
 {% block bodyclass %}events{% endblock %}
 
-{% block title %}Sponsored Events - {{ block.super }}{% endblock %}
-
 {% block content %}
-	<div id="fullColumn">
-		<div class="headerModule moduleLeft rssFeed">
-			<h2 class="withFeed">Upcoming Events</h2>
-			<a class="rss" href="{% url feed_upcoming_events %}">Subscribe to this RSS feed</a>
-			<div class="clear"></div>
-		</div>
-		<div id="upcomingEvents" class="moduleLeft">
-			<ol id="events">
-				{% for event in upcoming %}
-					<li{% if forloop.last %} id="lastEvent"{% endif %}>
-						<h3>
-							<span class="dateNumber">{{ event.start_date|date:"d" }}</span>
-							{{ event.start_date|date:"F" }}
-						</h3>
-						<h4><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h4>
-						{% if event.start_time %}
-							<span>
-								{{ event.start_time|time:"g:i a" }}
-								{% if event.end_time %}
-									- {{ event.end_time|time:"g:i a" }}
-								{% endif %}
-							</span>
-						{% endif %}	
-						{% if event.location %}
-							<span>{{ event.location }}</span>
-						{% endif %}
-					</li>
-				{% endfor %}
-			</ol>
-			<div class="clear"></div>
-			<a class="viewMore" href="{% url event_upcoming_archive %}">View All Upcoming Events</a>
-		</div>
-	</div>
 	<div id="ltColumn">
 		<div class="headerModule moduleLeft">
-			<h2>Recent Events</h2>
+			<h2>Events</h2>
 		</div>
 		<div class="moduleLeft">
 			<ol id="listEvents">
-				{% for event in recent %}
+				{% for event in event_list %}
 					<li>
 						<h3>
 							<span class="dateNumber">{{ event.start_date|date:"d" }}</span>
@@ -80,7 +45,7 @@
 					</li>
 				{% endfor %}
 			</ol>
-			<a class="viewMore" href="{% url event_recent_archive %}">View All Recent Events</a>
+			<a href="#">« Older Events</a>
 		</div>
 	</div>
 	<div id="rtColumn">

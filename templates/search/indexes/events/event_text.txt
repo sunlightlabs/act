@@ -1,5 +1,5 @@
 {{ object.title }}
 
-{{ object.content }}
+{{ object.description }}
 
 {{ object.tags }}

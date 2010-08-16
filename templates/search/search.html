@@ -23,6 +23,12 @@
 							<a href="{% url blogdor_post res.date_published.year res.slug %}">{{ res.title }}</a>
 						</li>
 					{% endif %}
+					
+					{% if res.type == 'event' %}
+						<li>
+							<a href="{{ res.url }}">{{ res.title }}</a>
+						</li>
+					{% endif %}
 				
 				{% empty %}
 					<li>No results found.</li>

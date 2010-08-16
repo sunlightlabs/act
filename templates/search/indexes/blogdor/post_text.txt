@@ -1,3 +1,5 @@
 {{ object.title }}
 
 {{ object.content.raw }}
+
+{{ object.tags }}

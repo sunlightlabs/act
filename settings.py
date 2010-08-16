@@ -31,6 +31,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'act.urls'
@@ -44,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.comments',
     'django.contrib.contenttypes',
+    'django.contrib.flatpages',
     'django.contrib.markup',
     'django.contrib.sessions',
     'django.contrib.sites',
@@ -64,10 +66,20 @@ EMAIL_HOST_USER = "smtpclient"
 EMAIL_HOST_PASSWORD = "mryogato"
 EMAIL_USE_TLS = True
 
-MEDIASYNC_AWS_KEY = '***REMOVED***'
-MEDIASYNC_AWS_SECRET = '***REMOVED***'
-MEDIASYNC_AWS_BUCKET = 'assets.sunlightfoundation.com'
-MEDIASYNC_AWS_PREFIX = 'act/1.0'
+# MEDIASYNC_AWS_KEY = '***REMOVED***'
+# MEDIASYNC_AWS_SECRET = '***REMOVED***'
+# MEDIASYNC_AWS_BUCKET = 'assets.sunlightfoundation.com'
+# MEDIASYNC_AWS_PREFIX = 'act/1.0'
+
+MEDIASYNC = {
+    'BACKEND': 'mediasync.backends.s3',
+    'AWS_KEY': "***REMOVED***",
+    'AWS_SECRET': "***REMOVED***",
+    'AWS_BUCKET': "assets.sunlightfoundation.com",
+    'AWS_PREFIX': "act/1.0",
+    'DOCTYPE': 'xhtml',
+    'CACHE_BUSTER': 1234567890,
+}
 
 # blogdor configuration
 BLOGDOR_POSTS_PER_PAGE = 10

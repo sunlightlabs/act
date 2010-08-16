@@ -118,3 +118,12 @@
 		</div>
 	</div>
 {% endblock %}
+
+{% block script %}
+	{% js "scripts/jquery.placehold-0.2.min.js" %}
+	<script>
+		$().ready(function() {
+			$("#id_mailing").placehold();
+		});
+	</script>
+{% endblock %}
