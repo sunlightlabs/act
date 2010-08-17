@@ -13,5 +13,5 @@ django-markupfield
 -e git://github.com/sunlightlabs/django-honeypot.git#egg=honeypot
 
 # search
-whoosh
+whoosh == 0.3.5
 django-haystack
