@@ -82,38 +82,16 @@
 		<h3 class="arrowHeader">Follow the Caucus</h3>
 		<div class="moduleRight">
 			<ul id="twitter">
-				<li>
-					<h4><a href="#">Twitter Name</a></h4>
-					<div class="tweetMetaData">
-						<a href="#">July 2, 2010</a>,
-						<span class="time">9:52 a.m.</span>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
-				</li>
-				<li>
-					<h4><a href="#">Twitter Name</a></h4>
-					<div class="tweetMetaData">
-						<a href="#">July 2, 2010</a>,
-						<span class="time">9:52 a.m.</span>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
-				</li>
-				<li>
-					<h4><a href="#">Twitter Name</a></h4>
-					<div class="tweetMetaData">
-						<a href="#">July 2, 2010</a>,
-						<span class="time">9:52 a.m.</span>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
-				</li>
-				<li>
-					<h4><a href="#">Twitter Name</a></h4>
-					<div class="tweetMetaData">
-						<a href="#">July 2, 2010</a>,
-						<span class="time">9:52 a.m.</span>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rhoncus blandit dui sit amet facilisis. Sed ac felis sem, eu malesuada metus.</p>
-				</li>
+				{% for tweet in tweets %}
+					<li>
+						<h4><a href="http://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></h4>
+						<div class="tweetMetaData">
+							<a href="http://twitter.com/{{ tweet.screen_name }}/status/{{ tweet.id }}">July 2, 2010{{ tweet.created_at|date:"F j, Y" }}</a>,
+							<span class="time">{{ tweet.created_at|time:"g:i a" }}</span>
+						</div>
+						<p>{{ tweet.text }}</p>
+					</li>
+				{% endfor %}
 			</ul>
 		</div>
 	</div>

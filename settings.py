@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'haystack',
     'act.events',
     'act.resources',
+    'act.tweets',
 )
 
 EMAIL_HOST = "smtp.sunlightlabs.com"

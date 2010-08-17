@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from act.events.models import Event
+from act.tweets.models import Tweet
 from blogdor.models import Post
 from feedinator.models import FeedEntry
 import re
@@ -20,9 +21,11 @@ def add_slug(post):
 def index(request):
     posts = Post.objects.published()[:2]
     upcoming_events = Event.objects.upcoming()[:3]
+    tweets = Tweet.objects.filter(timeline__slug='act')[:4]
     return render_to_response('index.html', {
         'posts': posts,
         'upcoming_events': upcoming_events,
+        'tweets': tweets,
     })
 
 def post_detail(request, year, slug):
