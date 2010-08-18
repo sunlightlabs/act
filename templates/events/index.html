@@ -83,104 +83,10 @@
 					</li>
 				{% endfor %}
 			</ol>
-			<a class="viewMore" href="{% url event_recent_archive %}">View All Previous Events</a>
+			<a class="viewMore" href="{% url event_archive "2010" %}">View All Events</a>
 		</div>
 	</div>
 	<div id="rtColumn">
 		{% include "includes/sidebar_upcomingevents.html" %}
-		<!--
-		<h3>Find a Past Event</h3>
-		<div class="moduleRight">
-			<form id="filterForm" action="." method="get">
-				<ul>
-					<li>
-						<label>Topic</label>
-						<div class="scroll formModule">
-							<ul>
-								<li>
-									<label><input class="checkbox" type="checkbox" name="word" />All Topics</label>
-								</li>
-								{% for tag in tags %}
-									<li>
-										<label><input class="checkbox" type="checkbox" name="word" />{{ tag }}</label>
-									</li>
-								{% endfor %}
-							</ul>
-						</div>
-					</li>
-					<li>
-						<label>Date Range</label>
-						<select class="month" name="month">
-							<option value="month">Month</option>
-							<option value="january">January</option>
-							<option value="february">February</option>
-							<option value="march">March</option>
-							<option value="april">April</option>
-							<option value="may">May</option>
-							<option value="june">June</option>
-							<option value="july">July</option>
-							<option value="august">August</option>
-							<option value="september">September</option>
-							<option value="october">October</option>
-							<option value="november">November</option>
-							<option value="december">December</option>
-						</select>
-						<select class="year" name="year">
-							<option value="year">Year</option>
-							<option value="2010">2010</option>
-							<option value="2009">2009</option>
-							<option value="2008">2008</option>
-							<option value="2007">2007</option>
-							<option value="2006">2006</option>
-							<option value="2005">2005</option>
-							<option value="2004">2004</option>
-							<option value="2003">2003</option>
-							<option value="2002">2002</option>
-							<option value="2001">2001</option>
-							<option value="2000">2000</option>
-							<option value="1999">1999</option>
-						</select>
-						<span>to</span>
-						<select class="month" name="month">
-							<option value="month">Month</option>
-							<option value="january">January</option>
-							<option value="february">February</option>
-							<option value="march">March</option>
-							<option value="april">April</option>
-							<option value="may">May</option>
-							<option value="june">June</option>
-							<option value="july">July</option>
-							<option value="august">August</option>
-							<option value="september">September</option>
-							<option value="october">October</option>
-							<option value="november">November</option>
-							<option value="december">December</option>
-						</select>
-						<select class="year" name="year">
-							<option value="year">Year</option>
-							<option value="2010">2010</option>
-							<option value="2009">2009</option>
-							<option value="2008">2008</option>
-							<option value="2007">2007</option>
-							<option value="2006">2006</option>
-							<option value="2005">2005</option>
-							<option value="2004">2004</option>
-							<option value="2003">2003</option>
-							<option value="2002">2002</option>
-							<option value="2001">2001</option>
-							<option value="2000">2000</option>
-							<option value="1999">1999</option>
-						</select>
-					</li>
-					<li>
-						<button class="searchBtn" type="submit">
-							<span>Search</span>
-						</button>
-					</li>
-				</ul>
-			</form>
-			<div class="clear"></div>
-		</div>
-		-->
 	</div>
 {% endblock %}

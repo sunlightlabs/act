@@ -2,7 +2,7 @@
 <h3 class="arrowHeader">Upcoming Events</h3>
 <div class="moduleRight withRss">
 	<a class="rss" href="{% url feed_upcoming_events %}">Subscribe to this RSS feed</a>
-	<div class="tip">Have a video of a past event that you’d like to share? Upload it <a href="#">here</a>.</div>
+	<div class="tip">Have a video of a past event you’d like to share? <a href="/contact/">Send us the URL</a>.</div>
 	<ol id="events">
 		{% upcomingevents 3 as events %}
 		{% if events %}
@@ -30,5 +30,5 @@
 			<p>No scheduled events.</p>
 		{% endif %}
 	</ol>
-	<a class="viewMore" href="{% url event_index %}">View all past and upcoming events</a>
+	<a class="viewMore" href="{% url event_index %}">View all events</a>
 </div>
