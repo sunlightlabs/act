@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block bodyclass %}events{% endblock %}
+
+{% block title %}{{ object.title }} - Events - {{ block.super }}{% endblock %}
+{% block meta_description %}{{ object.description|striptags|truncatewords:50 }}{% endblock %}
+
+{% block content %}
+	<div id="ltColumn">
+		<div class="headerModule moduleLeft">
+			<h2>{{ object.title }}</h2>
+		</div>
+		<div class="moduleLeft">
+			<dl>
+				
+				<dt>start date</dt>
+				<dd>{{ object.start_date }}</dd>
+				
+				<dt>start time</dt>
+				<dd>{{ object.start_time }}</dd>
+				
+				<dt>end time</dt>
+				<dd>{{ object.end_time }}</dd>
+				
+				<dt>location</dt>
+				<dd>{{ object.location }}</dd>
+				
+				<dt>description</dt>
+				<dd>{{ object.description }}</dd>
+				
+				<dt>url</dt>
+				<dd>{{ object.url }}</dd>
+				
+				<dt>video url</dt>
+				<dd>{{ object.video_url }}</dd>
+				
+				<dt>press releases</dt>
+				<dd>
+					<ul>
+						{% for pr in object.press_releases.all %}
+							<li><a href="{{ pr.url }}">{{ pr.released_by }}</a></li>
+						{% endfor %}
+					</ul>
+				</dd>
+				
+				<dt>tags</dt>
+				<dd>{{ object.tags }}</dd>
+				
+			</dl>
+		</div>
+	</div>
+	<div id="rtColumn">
+	</div>
+{% endblock %}

@@ -48,16 +48,14 @@
 		</div>
 	</div>
 	<div id="rtColumn">
-		{% if years.length > 1 %}
-			<h3>Find a Past Event</h3>
-			<div class="moduleRight">
-				<ol>
-					{% for y in years %}
-						<li><a href="{% url event_archive y %}">{{ y }}</a></li>
-					{% endfor %}
-				</ol>
-				<div class="clear"></div>
-			</div>
-		{% endif %}
+		<h3>Events by year</h3>
+		<div class="moduleRight">
+			<ol>
+				{% for y in years %}
+					<li><a href="{% url event_archive y %}">{{ y }}</a></li>
+				{% endfor %}
+			</ol>
+			<div class="clear"></div>
+		</div>
 	</div>
 {% endblock %}

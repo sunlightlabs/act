@@ -4,6 +4,7 @@ from django.views.generic import date_based
 from django.views.generic import list_detail
 from tagging.models import Tag
 from act.events.models import Event
+from act.resources.models import Resource
 import datetime
 
 def event_index(request):

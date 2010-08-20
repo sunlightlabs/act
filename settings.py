@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'act.events',
     'act.resources',
     'act.tweets',
+    'act.blogimport',
 )
 
 EMAIL_HOST = "smtp.sunlightlabs.com"
