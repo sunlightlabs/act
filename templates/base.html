@@ -7,6 +7,8 @@
 		<meta name="description" content="{% block meta_description %}The Advisory Committee on Transparency shares ideas with members of the Congressional Transparency Caucus and educates policymakers on transparency-related issues, problems, and solutions.{% endblock %}" />
 		<title>{% block title %}Advisory Committee on Transparency{% endblock %}</title>
 		{% css "styles/main.css" %}
+		 <!--[if IE 6]>{% css "styles/buggy.css" %}<![endif]-->
+         <!--[if IE 7]>{% css "styles/buggy7.css" %}<![endif]-->
 	</head>
 	<body class="{% block bodyclass %}act{% endblock %}">
 		<div id="header">

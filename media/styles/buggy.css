@@ -1,0 +1,37 @@
+div#shareResults, #homeDescription { position: relative;}
+
+h1 a { background: url(../images/logo_8.png) top left no-repeat; }
+
+a#nav_about { background: url(../images/nav_about_8.png) top left no-repeat;}
+a#nav_about:hover, body.about a#nav_about{ background: url(../images/nav_about_8.png) left -40px no-repeat;}
+a#nav_events { background: url(../images/nav_events_8.png) top left no-repeat;}
+a#nav_events:hover, body.events a#nav_events{ background: url(../images/nav_events_8.png) left -40px no-repeat;}
+a#nav_blog { background: url(../images/nav_blog_8.png) top left no-repeat;}
+a#nav_blog:hover, body.blog a#nav_blog { background: url(../images/nav_blog_8.png) left -40px no-repeat;}
+a#nav_resources { background: url(../images/nav_resources_8.png) top left no-repeat;}
+a#nav_resources:hover, body.resources a#nav_resources{ background: url(../images/nav_resources_8.png) left -40px no-repeat;}
+a#nav_contact { background: url(../images/nav_contact_8.png) top left no-repeat;}
+a#nav_contact:hover, body.contact a#nav_contact { background: url(../images/nav_contact_8.png) left -40px no-repeat;}
+
+div#featureBox { background: url(../images/feature_text_8.png) top left no-repeat;}
+
+div#pageMain { background: url(../images/bg_contentTop_8.png) top center no-repeat; }
+.headerModule { background: url(../images/divider_left_8.png) left bottom no-repeat;}
+
+div.posts li, ol#listEvents li { background: url(../images/divider_post_8.png) center bottom no-repeat; }
+div#pageMain_interior { background: url(../images/bg_contentMiddle_8.png) center top repeat-y; zoom: 1;}
+
+h3.arrowHeader { background: url("../images/divider_rightColumn_8.png") 40px top no-repeat; }
+
+#foundationLogo { background: url("../images/logo_sunlight_8.png") left top no-repeat; }
+#footer #moreInfo {  padding: 60px 0 0; }
+#privacyPolicy { margin-top: -35px;}
+
+#mailingList { background: url(../images/bg_mailingList.jpg) right top no-repeat;}
+input.transparent{ margin-right: 10px;}
+
+body.home div#header { min-height: 500px; height:auto!important; height: 500px;  }
+div#pageMain { margin-top: -21px;}
+
+input.transparent { background: url(../images/input_transparent.jpg) left top no-repeat;}
+#postForm input { background: #F5F5ED none;}

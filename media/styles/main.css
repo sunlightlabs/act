@@ -19,13 +19,16 @@ body{
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+strong, b { font-weight: bold;}
+i, em { font-style: italic;}
+
 body.home div#header { background: url(../images/bg_home.jpg) top left no-repeat;  height: 532px;}
 
 h1 { width: 356px; height: 81px; padding-top: 50px; margin-bottom: 25px;}
 h1 a { text-indent: -9999em; display: block; background: url(../images/logo.png) top left no-repeat; width: 356px; height: 81px;}
 
 h2, h3 { font-family: Georgia, "Times New Roman", Times, serif; color: #27110d;}
-h2 { text-transform: uppercase; font-size: 235%;}
+h2 { text-transform: uppercase; font-size: 235%; line-height: 30px;}
 body.blog h2 { text-transform: capitalize; }
 body.blog h2 a { color: #27110d; text-decoration: none; }
 h2.withFeed { float: left;}
@@ -96,6 +99,12 @@ div.posts h3 a { color: #27110d; text-decoration: none; }
 .postContent ol{ list-style-type: decimal; padding-left: 35px;}
 .postContent ul{ list-style-type: disc; padding-left: 35px;}
 
+#paginator li { background: none; margin-bottom: 0; float: left; margin-right: 5px; font-weight: bold;}
+#paginator a { font-weight: normal; display: block; margin-top: -2px;}
+#paginator a:hover { font-weight: bold; margin-top: 0px;}
+#paginator { width: 150px; margin: 0 auto;  }
+.leftLink { float: left;}
+
 div#ltColumn a.rss, #fullColumn a.rss { float: right; margin-right: 10px; margin-top: 5px; background: url(../images/rss.png) left 3px no-repeat;}
 #fullColumn a.rss { margin-right: 380px;}
 div#rtColumn a.rss { margin-top: -15px;}
@@ -163,7 +172,7 @@ div.posts #comments li{ padding-bottom: 40px;}
 .normalForm label, #filterForm label{ font-weight: bold; display: block; }
 #filterForm div.scroll label { font-weight: normal; }
 input.checkbox { width: 15px; margin-right: 10px;}
-.normalForm input, .normalForm textarea { background-color: #F5F5ED; border:1px solid #D6D1D1; width: 250px; padding:5px; color: #6f6968; float: none;}
+.normalForm input, .normalForm textarea { border:1px solid #D6D1D1; width: 250px; padding:5px; color: #6f6968; float: none; background: #F5F5ED none;}
 .normalForm textarea { width: 527px;}
 #ltColumn .normalForm li { background: none; float: left; padding-bottom: 0; margin-bottom: 20px;}
 
