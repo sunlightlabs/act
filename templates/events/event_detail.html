@@ -12,30 +12,29 @@
 			<h2>{{ object.title }}</h2>
 		</div>
 		<div class="moduleLeft">
-			<dl>
+			<dl id="eventDetail">
+				<dt class="hiddenItem">Start Date</dt>
+				<dd id="date">{{ object.start_date }}</dd>
 				
-				<dt>start date</dt>
-				<dd>{{ object.start_date }}</dd>
+				<dt class="hiddenItem">Start Time</dt>
+				<dd class="time">{{ object.start_time }} - </dd>
 				
-				<dt>start time</dt>
-				<dd>{{ object.start_time }}</dd>
+				<dt class="hiddenItem">End Time</dt>
+				<dd class="time">{{ object.end_time }}</dd>
 				
-				<dt>end time</dt>
-				<dd>{{ object.end_time }}</dd>
+				<dt class="hiddenItem">Location</dt>
+				<dd id="location">{{ object.location }}</dd>
 				
-				<dt>location</dt>
-				<dd>{{ object.location }}</dd>
+				<dt class="hiddenItem">Description</dt>
+				<dd class="clear description">{{ object.description }}</dd>
 				
-				<dt>description</dt>
-				<dd>{{ object.description }}</dd>
-				
-				<dt>url</dt>
+				<dt class="hiddenItem">URL</dt>
 				<dd>{{ object.url }}</dd>
 				
-				<dt>video url</dt>
+				<dt class="clear" id="video">Video</dt>
 				<dd>{{ object.video_url }}</dd>
 				
-				<dt>press releases</dt>
+				<dt class="clear">Press Releases</dt>
 				<dd>
 					<ul>
 						{% for pr in object.press_releases.all %}
@@ -44,7 +43,7 @@
 					</ul>
 				</dd>
 				
-				<dt>tags</dt>
+				<dt class="clear">tags</dt>
 				<dd>{{ object.tags }}</dd>
 				
 			</dl>
