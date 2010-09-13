@@ -102,7 +102,7 @@ div.posts h3 a { color: #27110d; text-decoration: none; }
 #paginator li { background: none; margin-bottom: 0; float: left; margin-right: 5px; font-weight: bold;}
 #paginator a { font-weight: normal; display: block; margin-top: -2px;}
 #paginator a:hover { font-weight: bold; margin-top: 0px;}
-#paginator { width: 150px; margin: 0 auto;  }
+#paginator { width: 200px; margin: 0 auto;  }
 .leftLink { float: left;}
 
 div#ltColumn a.rss, #fullColumn a.rss { float: right; margin-right: 10px; margin-top: 5px; background: url(../images/rss.png) left 3px no-repeat;}

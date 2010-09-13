@@ -1,5 +1,8 @@
 from django.contrib.syndication.views import Feed
 from act.events.models import Event
+from blogdor.models import Post
+
+# event feeds
 
 class EventsFeed(Feed):
 
@@ -30,3 +33,23 @@ class UpcomingEventsFeed(EventsFeed):
     
     def items(self):
         return Event.objects.upcoming()[:10]
+
+# blog feeds
+
+class LatestPosts(Feed):
+    title = "Recent Advisory Committee on Transparency blog posts"
+    link = "/blog/"
+    description = "Recent Transparency Caucus blog posts"
+    
+    description_template = "feeds/posts.html"
+    
+    def items(self):
+        return Post.objects.published()[:10]
+        
+    def item_author_name(self, post):
+        if post.author:
+            return post.author.get_full_name()
+        return "Anonymous"
+
+    def item_pubdate(self, post):
+        return post.date_published

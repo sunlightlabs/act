@@ -21,6 +21,7 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
     url(r'^feeds/events/recent/$', feeds.RecentEventsFeed(), name='feed_recent_events'),
     url(r'^feeds/events/upcoming/$', feeds.UpcomingEventsFeed(), name='feed_upcoming_events'),
+    url(r'^feeds/blog/$', feeds.LatestPosts(), name='feed_latest_posts'),
 )
 
 if settings.DEBUG:
