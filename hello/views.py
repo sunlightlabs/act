@@ -42,7 +42,7 @@ class Hello(object):
             # send message on valid form submission
             self.send_message(request, form.cleaned_data)
             # notify user of success and redirect
-            messages.success(request, 'Your message was successfully sent')
+            messages.success(request, 'Thanks you for contacting us!')
             return HttpResponseRedirect(MESSAGE_SENT_URL if MESSAGE_SENT_URL else request.path)
             
         # form was not valid, show errors to user

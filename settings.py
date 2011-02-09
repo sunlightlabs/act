@@ -62,16 +62,7 @@ INSTALLED_APPS = (
     'act.blogimport',
 )
 
-EMAIL_HOST = "smtp.sunlightlabs.com"
-EMAIL_PORT = "25"
-EMAIL_HOST_USER = "smtpclient"
-EMAIL_HOST_PASSWORD = "mryogato"
-EMAIL_USE_TLS = True
-
-# MEDIASYNC_AWS_KEY = '***REMOVED***'
-# MEDIASYNC_AWS_SECRET = '***REMOVED***'
-# MEDIASYNC_AWS_BUCKET = 'assets.sunlightfoundation.com'
-# MEDIASYNC_AWS_PREFIX = 'act/1.0'
+EMAIL_BACKEND = 'postmark.django_backend.EmailBackend'
 
 MEDIASYNC = {
     'BACKEND': 'mediasync.backends.s3',

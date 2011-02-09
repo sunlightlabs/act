@@ -1,17 +1,16 @@
-Django >= 1.2, < 1.3
-boto
-django-mediasync
+Django==1.2.5
+django-mediasync==2.0.0
 feedparser
 -e git://github.com/sunlightlabs/django-feedinator.git#egg=feedinator
+python-postmark
 
 # blogdor
 markdown
 django-markupfield
 -e svn+http://django-tagging.googlecode.com/svn/trunk/#egg=tagging
 -e git://github.com/sunlightlabs/django-blogdor.git#egg=blogdor
-
 -e git://github.com/sunlightlabs/django-honeypot.git#egg=honeypot
 
 # search
-whoosh == 0.3.5
-django-haystack
+whoosh==1.6.2
+django-haystack==1.1.0
