@@ -3,7 +3,12 @@ from act.events.models import Event
 from blogdor.models import Post
 from tagging.models import Tag, TaggedItem
 
-class Resource(models.Model):
+RESOURCE_TYPES = (
+    ('d', 'document'),
+    ('l', 'link'),
+)
+
+class Topic(models.Model):
     title = models.CharField(max_length=128)
     slug = models.SlugField()
     content = models.TextField(blank=True)
@@ -22,4 +27,19 @@ class Resource(models.Model):
     def events(self):
         if self.tags:
             qs = TaggedItem.objects.get_by_model(Event, self.tags.all())
-            return qs.filter(is_public=True).order_by('-start_date', '-start_time')    
+            return qs.filter(is_public=True).order_by('-start_date', '-start_time')
+
+class Resource(models.Model):
+    topic = models.ForeignKey(Topic, related_name='resources')
+    type = models.CharField(max_length=1, choices=RESOURCE_TYPES)
+    url = models.URLField(verify_exists=False)
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    source = models.CharField(max_length=255, blank=True)
+    
+    class Meta:
+        ordering = ('-id',)
+    
+    def __unicode__(self):
+        return self.title
+    

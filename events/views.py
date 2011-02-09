@@ -4,7 +4,7 @@ from django.views.generic import date_based
 from django.views.generic import list_detail
 from tagging.models import Tag, TaggedItem
 from act.events.models import Event
-from act.resources.models import Resource
+from act.resources.models import Topic
 from blogdor.models import Post
 import datetime
 
@@ -36,13 +36,6 @@ def event_archive(request, year=None):
                 })
 
 def event_detail(request, year, month, day, slug):
-    # try:
-    #     e = Event.objects.get(slug=slug)
-    #     print e.tags
-    #     related_posts = TaggedItem.objects.get_union_by_model(Post, e.tags)
-    # except Event.DoesNotExist:
-    #     related_posts = None
-    # print "!!!", related_posts
     return date_based.object_detail(
                 request,
                 year=year,
@@ -50,7 +43,5 @@ def event_detail(request, year, month, day, slug):
                 day=day,
                 slug=slug,
                 date_field='start_date',
-                queryset=Event.objects.all(),
-                extra_context={
-                    'related_posts': None,
-                })
+                allow_future=True,
+                queryset=Event.objects.filter(is_public=True))

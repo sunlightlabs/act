@@ -73,6 +73,26 @@ div#featureBox { background: url(../images/feature_text.png) top left no-repeat;
 .moduleRight { background-color: #f5f5ed; padding: 30px; border: 1px solid #d6d1d1; -moz-opacity: 0.9 !important; -webkit-opacity: 0.9!important; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)" !important; filter: alpha(opacity=90) !important; opacity: 0.9 !important; margin-bottom: 30px;}
 .withRss { padding: 15px 30px 30px; }
 
+
+.content ol {
+	list-style-position: outside;
+	list-style-type: decimal;
+	margin-bottom: 2em;
+	padding: 0 20px;
+	width: 90%;
+}
+.content ul {
+	list-style-position: outside;
+	list-style-type: disc;
+	margin-bottom: 2em;
+	padding: 0 20px;
+	width: 90%;
+}
+.content ol li, .content ul li {
+	margin: 1em 0;
+}
+.content h3 { margin-top: 1em; }
+
 #mailingList { background: url(../images/bg_mailingList.png) top right no-repeat; width: 320px; height: 24px; float: right; padding: 15px 15px 20px; margin: 0 30px 1px 0;}
 #mailingList input { height: 14px; width: 200px;}
 

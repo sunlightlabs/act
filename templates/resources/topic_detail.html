@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block meta_description %}{{ object.content|markdown|striptags|truncatewords:50 }}{% endblock %}
+{% block title %}Topic: {{ object.title }} - {{ block.super }}{% endblock %}
+
+{% block bodyclass %}resources{% endblock %}
+
+{% block content %}
+	<div id="fullColumn">
+		<div class="headerModule moduleLeft">
+			<h2>{{ object }}</h2>
+		</div>
+		<div class="moduleLeft">
+		    
+		    {% if object.content %}
+    			<div class="topic-content content">
+    				{{ object.content|markdown }}
+    			</div>
+			{% endif %}
+			
+			<ul class="resources">
+			    {% for res in object.resources.all %}
+			        <li class="{{ res.get_type_display }}">
+			            <a href="{{ res.url }}" class="title">{{ res.title }}</a>
+			            {% if res.source %}
+			                <p class="source">{{ res.source }}</p>
+			            {% endif %}
+			            {% if res.description %}
+			                <div class="description content">
+			                    {{ res.description|markdown }}
+			                </div>
+			            {% endif %}
+			        </li>
+			    {% endfor %}
+			</ul>
+			
+			{% comment %}
+			<h3>Related blog posts</h3>
+			<ol>
+				{% for post in object.posts %}
+					<li>
+						{% include "blogdor/post_preview.html" %}
+					</li>
+				{% endfor %}
+			</ol>
+			<h3>Related events</h3>
+			<ol>
+				{% for event in object.events %}
+					<li>
+						<a href="{{ event.get_absolute_url }}">{{ event }}</a>
+					</li>
+				{% endfor %}
+			</ol>
+			{% endcomment %}
+		</div>
+	</div>
+	<div class="clear"></div>
+{% endblock %}

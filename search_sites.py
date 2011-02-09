@@ -3,7 +3,7 @@ from haystack.fields import CharField, DateTimeField
 from haystack.indexes import SearchIndex
 from blogdor.models import Post
 from act.events.models import Event
-from act.resources.models import Resource
+from act.resources.models import Topic
 
 class PostIndex(SearchIndex):
     text = CharField(document=True, model_attr='content', use_template=True)
@@ -18,16 +18,16 @@ class PostIndex(SearchIndex):
 site.register(Post, PostIndex)
 
 
-class ResourceIndex(SearchIndex):
+class TopicIndex(SearchIndex):
     text = CharField(document=True, model_attr='content', use_template=True)
     title = CharField(model_attr='title')
     slug = CharField(model_attr='slug')
     type = CharField(default='resource')
     
     def get_queryset(self):
-        return Resource.objects.all()
+        return Topic.objects.all()
 
-site.register(Resource, ResourceIndex)
+site.register(Topic, TopicIndex)
 
 
 class EventIndex(SearchIndex):

@@ -32,6 +32,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'act.urls'
@@ -50,6 +51,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'debug_toolbar',
     'mediasync',
     'feedinator',
     'tagging',
@@ -72,6 +74,12 @@ MEDIASYNC = {
     'AWS_PREFIX': "act/1.0",
     'DOCTYPE': 'xhtml',
     'CACHE_BUSTER': 1234567890,
+}
+
+INTERNAL_IPS = ('127.0.0.1',)
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
 }
 
 # blogdor configuration
