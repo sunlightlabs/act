@@ -1,5 +1,0 @@
-{{ object.title }}
-
-{{ object.content }}
-
-{{ object.tags }}
