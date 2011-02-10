@@ -22,7 +22,7 @@ class TopicIndex(SearchIndex):
     text = CharField(document=True, model_attr='content', use_template=True)
     title = CharField(model_attr='title')
     slug = CharField(model_attr='slug')
-    type = CharField(default='resource')
+    type = CharField(default='topic')
     
     def get_queryset(self):
         return Topic.objects.all()

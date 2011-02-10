@@ -1,0 +1,9 @@
+{{ object.title }}
+
+{{ object.content }}
+
+{{ object.tags }}
+
+{% for resource in object.resources.all %}
+    {{ resource.title }}
+{% endfor %}

@@ -12,9 +12,9 @@
 			<ol>
 				{% for res in page.object_list %}
 				
-					{% if res.type == 'resource' %}
+					{% if res.type == 'topic' %}
 						<li>
-							<a href="{% url resource_detail res.slug %}">{{ res.title }}</a>
+							<a href="{% url topic_detail res.slug %}">{{ res.title }}</a>
 						</li>
 					{% endif %}
 				
