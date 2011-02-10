@@ -22,8 +22,6 @@ body{
 strong, b { font-weight: bold;}
 i, em { font-style: italic;}
 
-body.home div#header { background: url(../images/bg_home.jpg) top left no-repeat;  height: 532px;}
-
 h1 { width: 356px; height: 81px; padding-top: 50px; margin-bottom: 25px;}
 h1 a { text-indent: -9999em; display: block; background: url(../images/logo.png) top left no-repeat; width: 356px; height: 81px;}
 
@@ -62,7 +60,21 @@ a#nav_resources:hover, body.resources a#nav_resources{ background: url(../images
 a#nav_contact { background: url(../images/nav_contact.png) top left no-repeat;}
 a#nav_contact:hover, body.contact a#nav_contact { background: url(../images/nav_contact.png) left -40px no-repeat;}
 
-div#featureBox { background: url(../images/feature_text.png) top left no-repeat; width: 908px; height: 217px; text-indent: -9999em; margin-bottom: 20px;}
+/*
+div#featureBox { background: url(../images/feature_text.png) top left no-repeat; width: 908px; height: 125px; text-indent: -9999em; margin-bottom: 20px;}
+*/
+
+div#featureBox {
+	color: #DDD;
+	line-height: 1.4em;
+	font-family: 'OFL Sorts Mill Goudy TT', serif;
+	font-size: 28px;
+	font-weight: normal;
+	height: 155px;
+	padding: 0 1em;
+}
+
+body.home div#header { background: url(../images/bg_home.jpg) top left no-repeat;  height: 450px;}
 
 
 .headerModule { background: url(../images/divider_left.png) bottom left no-repeat; display: block; margin-bottom: 25px; padding-bottom: 20px; }
@@ -93,7 +105,16 @@ div#featureBox { background: url(../images/feature_text.png) top left no-repeat;
 }
 .content h3 { margin-top: 1em; }
 
-#mailingList { background: url(../images/bg_mailingList.png) top right no-repeat; width: 320px; height: 24px; float: right; padding: 15px 15px 20px; margin: 0 30px 1px 0;}
+#mailingList {
+	/*background: url(../images/bg_mailingList.png) top right no-repeat;*/
+	background-color: #644A37;
+	background-color: rgba(169, 169, 169, 0.2);
+	width: 320px;
+	height: 24px;
+	float: right;
+	padding: 15px 15px 20px;
+	margin: 0 30px 1px 0;
+}
 #mailingList input { height: 14px; width: 200px;}
 
 input.transparent { float: left; background: url(../images/input_transparent.png) top left repeat-x; margin-right: 15px; border: none; color: #bebbbb; padding: 5px;}

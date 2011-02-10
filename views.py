@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render_to_response
+from django.template import RequestContext
 from act.events.models import Event
 from act.tweets.models import Tweet
 from blogdor.models import Post
@@ -26,7 +27,7 @@ def index(request):
         'posts': posts,
         'upcoming_events': upcoming_events,
         'tweets': tweets,
-    })
+    }, context_instance=RequestContext(request))
 
 def post_detail(request, year, slug):
     data = {

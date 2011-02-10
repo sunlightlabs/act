@@ -7,11 +7,11 @@
 {% block feature %}
 	<div id="featureBox">
 		<p>The Advisory Committee on Transparency shares ideas with members of the Congressional Transparency Caucus and educates policymakers on transparency-related issues, problems, and solutions.</p>
-		<p>It does so by hosting events to discuss important and wide-ranging transparency policy issues with experts from a variety of backgrounds. It develops educational publications and provides timely information to the public and members of Congress on its website.</p>
 	</div>
 	<div id="mailingList">
-		<form id="mailingForm" action="." method="get">
-			<input id="id_mailing" placeholder="Join the mailing list" class="transparent" type="text" name="skills"/>
+		<form id="mailingForm" action="." method="post">
+		    {% csrf_token %}
+			<input id="id_mailing" placeholder="Join the mailing list" class="transparent" type="text" name="email"/>
 			<button class="submitBtn" type="submit">
 				<span>Submit</span>
 			</button>
@@ -42,7 +42,11 @@
 							<dd>{{ post.author.get_full_name }}</dd>
 						</dl>
 						<div class="postContent clear">
-							{{ post.content|safe }}
+						    {% if post.excerpt %}
+						        {{ post.excerpt|safe }}
+						    {% else %}
+							    {{ post.content|safe }}
+							{% endif %}
 						</div>
 					</li>
 				{% endfor %}
@@ -69,13 +73,4 @@
 			<a class="viewMore" href="http://twitter.com/sunlightnetwork/sunlight">Read more tweets from the caucus</a>
 		</div>
 	</div>
-{% endblock %}
-
-{% block script %}
-	{% js "scripts/jquery.placehold-0.2.min.js" %}
-	<script>
-		$().ready(function() {
-			$("#id_mailing").placehold();
-		});
-	</script>
 {% endblock %}

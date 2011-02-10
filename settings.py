@@ -74,6 +74,13 @@ MEDIASYNC = {
     'AWS_PREFIX': "act/1.0",
     'DOCTYPE': 'xhtml',
     'CACHE_BUSTER': 1234567890,
+    'JOINED': {
+        'scripts/production.js': (
+            'scripts/jquery-1.5.min.js',
+            'scripts/jquery.placehold-0.2.min.js',
+            'scripts/act.js',
+        ),
+    }
 }
 
 INTERNAL_IPS = ('127.0.0.1',)
