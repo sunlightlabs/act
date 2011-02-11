@@ -11,15 +11,21 @@ class Command(BaseCommand):
     
     def handle(self, slug=None, *args, **kwargs):
         
-        conn = Connection('10.13.37.20')
+        conn = Connection()
         
         users = {
             'Daniel Schuman': User.objects.get(username='dschuman'),
             'John Wonderlich': User.objects.get(username='jwonderlich'),
             'enaing': User.objects.get(username='enaing'),
+            'Melanie Buck': User.objects.get(username='mbuck'),
+            'Nicko Margolies': User.objects.get(username='nmargolies'),
+            'Alexis Rudakewych': User.objects.get(username='arudakewych'),
         }
 
         for doc in conn['openhouse']['blog'].find():
+            
+            tags = ", ".join(['"%s"' % t for t in doc['tags']])
+            print tags
             
             p = Post(
                 id=doc['ID'],
@@ -30,8 +36,9 @@ class Command(BaseCommand):
                 date_published=doc['post_date'],
                 timestamp=doc['post_date'],
                 is_published=True,
-                tags=doc['tags'],
             )
+            
+            p.tags = tags
             
             p.content = unicode(doc['post_content'], 'utf8', 'ignore')
             p.content_markup_type = 'markdown'

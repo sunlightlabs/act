@@ -58,6 +58,7 @@ class TagFilter(Filter):
         for row in c.fetchall():
             record['tags'].append(row['name'])
         c.close()
+        record['tags'] = ", ".join(record['tags'])
         return record
 
 class ContentFilter(Filter):
@@ -87,11 +88,11 @@ query = """
     INNER JOIN oh_term_relationships tr ON p.ID = tr.object_id
     INNER JOIN oh_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
     INNER JOIN oh_terms t ON tt.term_id = t.term_id
-    WHERE p.post_status = 'publish' AND p.post_type = 'post' AND t.name = 'act'
+    WHERE p.post_status = 'publish' AND p.post_type = 'post' AND (t.name = 'act' or t.name = 'The Day in Transparency')
     ORDER BY p.post_date DESC
 """
 
-mongo = Connection('10.13.37.20')
+mongo = Connection()
 
 saucebrush.run_recipe(
     MySQLSource(conn, query),
