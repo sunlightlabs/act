@@ -9,9 +9,9 @@
 		<p>The Advisory Committee on Transparency shares ideas with members of the Congressional Transparency Caucus and educates policymakers on transparency-related issues, problems, and solutions.</p>
 	</div>
 	<div id="mailingList">
-		<form id="mailingForm" action="." method="post">
-		    {% csrf_token %}
-			<input id="id_mailing" placeholder="Join the mailing list" class="transparent" type="text" name="email"/>
+		<form id="mailingForm" action="http://local.publicequalsonline.com/page/s/Advisory_Committee_on_Transparency" method="post">
+		    <label for="id_mailing">Join the mailing list</label>
+			<input id="id_mailing" placeholder="your email address" class="transparent" type="text" name="email"/>
 			<button class="submitBtn" type="submit">
 				<span>Submit</span>
 			</button>
@@ -63,7 +63,7 @@
 					<li>
 						<h4><a href="http://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></h4>
 						<div class="tweetMetaData">
-							<a href="http://twitter.com/{{ tweet.screen_name }}/status/{{ tweet.id }}">July 2, 2010{{ tweet.created_at|date:"F j, Y" }}</a>,
+							<a href="http://twitter.com/{{ tweet.screen_name }}/status/{{ tweet.id }}">{{ tweet.created_at|date:"F j, Y" }}</a>,
 							<span class="time">{{ tweet.created_at|time:"g:i a" }}</span>
 						</div>
 						<p>{{ tweet.text }}</p>
