@@ -62,6 +62,7 @@ INSTALLED_APPS = (
     'act.resources',
     'act.tweets',
     'act.blogimport',
+    'gunicorn',
 )
 
 EMAIL_BACKEND = 'postmark.django_backend.EmailBackend'
