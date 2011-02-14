@@ -72,7 +72,7 @@ MEDIASYNC = {
     'AWS_KEY': "***REMOVED***",
     'AWS_SECRET': "***REMOVED***",
     'AWS_BUCKET': "assets.sunlightfoundation.com",
-    'AWS_PREFIX': "act/1.0",
+    'AWS_PREFIX': "act/2.0",
     'DOCTYPE': 'xhtml',
     'CACHE_BUSTER': 1234567890,
     'JOINED': {

@@ -18,7 +18,7 @@ class Timeline(models.Model):
         return self.title
 
 class Tweet(models.Model):
-    id = models.CharField(max_length=16, primary_key=True)
+    id = models.CharField(max_length=32, primary_key=True)
     text = models.CharField(max_length=225)
     created_at = models.DateTimeField()
     name = models.CharField(max_length=128)

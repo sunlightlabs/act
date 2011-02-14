@@ -42,11 +42,7 @@
 							<dd>{{ post.author.get_full_name }}</dd>
 						</dl>
 						<div class="postContent clear">
-						    {% if post.excerpt %}
-						        {{ post.excerpt|safe }}
-						    {% else %}
-							    {{ post.content|safe }}
-							{% endif %}
+							{{ post.content|safe }}
 						</div>
 					</li>
 				{% endfor %}
@@ -64,13 +60,13 @@
 						<h4><a href="http://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></h4>
 						<div class="tweetMetaData">
 							<a href="http://twitter.com/{{ tweet.screen_name }}/status/{{ tweet.id }}">{{ tweet.created_at|date:"F j, Y" }}</a>,
-							<span class="time">{{ tweet.created_at|time:"g:i a" }}</span>
+							<!-- <span class="time">{{ tweet.created_at|time:"g:i a" }}</span> -->
 						</div>
 						<p>{{ tweet.text }}</p>
 					</li>
 				{% endfor %}
 			</ul>
-			<a class="viewMore" href="http://twitter.com/sunlightnetwork/sunlight">Read more tweets from the caucus</a>
+			<a class="viewMore" href="http://twitter.com/sunfoundation/act">Read more tweets from the caucus</a>
 		</div>
 	</div>
 {% endblock %}

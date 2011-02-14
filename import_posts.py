@@ -58,7 +58,6 @@ class TagFilter(Filter):
         for row in c.fetchall():
             record['tags'].append(row['name'])
         c.close()
-        record['tags'] = ", ".join(record['tags'])
         return record
 
 class ContentFilter(Filter):
