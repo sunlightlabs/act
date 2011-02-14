@@ -4,7 +4,7 @@
 {% block title %}Topics - {{ block.super }}{% endblock %}
 
 {% block content %}
-	<div id="fullColumn">
+	<div id="ltColumn">
 		<div class="headerModule moduleLeft">
 			<h2>Resources by Topic</h2>
 		</div>
@@ -16,5 +16,9 @@
 			</ol>
 		</div>
 	</div>
+	<div id="rtColumn">
+	    {% include "includes/sidebar_upcomingevents.html" %}
+	</div>    
 	<div class="clear"></div>
+	
 {% endblock %}

@@ -7,7 +7,7 @@
 {% block bodyclass %}resources{% endblock %}
 
 {% block content %}
-	<div id="fullColumn">
+	<div id="ltColumn">
 		<div class="headerModule moduleLeft">
 			<h2>{{ object }}</h2>
 		</div>
@@ -55,5 +55,9 @@
 			{% endcomment %}
 		</div>
 	</div>
+	<div id="rtColumn">
+	    {% include "includes/sidebar_upcomingevents.html" %}
+	</div>    
 	<div class="clear"></div>
+	
 {% endblock %}

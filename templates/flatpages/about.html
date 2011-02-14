@@ -8,7 +8,7 @@
 
 {% block content %}
 
-	<div id="fullColumn">
+	<div id="ltColumn">
 		<div class="headerModule moduleLeft">
 			<h2>{{ flatpage.title }}</h2>
 		</div>
@@ -16,6 +16,9 @@
 			{{ flatpage.content|markdown }}
 		</div>
 	</div>
+	<div id="rtColumn">
+	    {% include "includes/sidebar_upcomingevents.html" %}
+	</div>    
 	<div class="clear"></div>
 
 {% endblock %}
