@@ -6,9 +6,9 @@
 
 	<div class="moduleLeft">
 		{% if query %}
-	
-			<h2>Search Results for &#8220;{{ query }}&#8221;</h2>
-		
+	        <div class="headerModule moduleLeft">
+			    <h2>Search Results for &#8220;{{ query }}&#8221;</h2>
+		    </div>
 			<ol>
 				{% for res in page.object_list %}
 				
