@@ -60,7 +60,7 @@
 						<h4><a href="http://twitter.com/{{ tweet.screen_name }}">{{ tweet.name }}</a></h4>
 						<div class="tweetMetaData">
 							<a href="http://twitter.com/{{ tweet.screen_name }}/status/{{ tweet.id }}">{{ tweet.created_at|date:"F j, Y" }}</a>,
-							<span class="time">{{ tweet.created_at|time:"g:i a" }}</span>
+							<!-- <span class="time">{{ tweet.created_at|time:"g:i a" }}</span> -->
 						</div>
 						<p>{{ tweet.text }}</p>
 					</li>
