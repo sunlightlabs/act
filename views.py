@@ -20,7 +20,7 @@ def add_slug(post):
 # real views
 
 def index(request):
-    posts = Post.objects.published()[:2]
+    posts = Post.objects.published()[:6]
     upcoming_events = Event.objects.upcoming()[:3]
     tweets = Tweet.objects.filter(timeline__slug='act')[:4]
     return render_to_response('index.html', {

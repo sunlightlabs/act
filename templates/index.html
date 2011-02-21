@@ -42,7 +42,7 @@
 							<dd>{{ post.author.get_full_name }}</dd>
 						</dl>
 						<div class="postContent clear">
-							{{ post.content|safe }}
+							{{ post.excerpt|safe }}
 						</div>
 					</li>
 				{% endfor %}
