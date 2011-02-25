@@ -42,7 +42,7 @@
 							<dd>{{ post.author.get_full_name }}</dd>
 						</dl>
 						<div class="postContent clear">
-							{{ post.content|safe }}
+							{{ post.excerpt|safe }}
 						</div>
 					</li>
 				{% endfor %}
@@ -52,7 +52,7 @@
 	</div>
 	<div id="rtColumn">
 		{% include "includes/sidebar_upcomingevents.html" %}
-		<h3 class="arrowHeader">Follow the Caucus</h3>
+		<h3 class="arrowHeader">Follow the Committee</h3>
 		<div class="moduleRight">
 			<ul id="twitter">
 				{% for tweet in tweets %}

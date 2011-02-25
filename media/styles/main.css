@@ -68,13 +68,12 @@ div#featureBox { background: url(../images/feature_text.png) top left no-repeat;
 div#featureBox {
 	color: #c0baba;
 	line-height: 1.4em;
-
 	font-size: 28px;
-	font-weight: 300;
+	font-weight: 100;
 	padding: 0 1em;
 	width: 700px;
 }
-div#featureBox span { color: #f4efef; font-size: 35px; font-weight: 400;}
+div#featureBox span { color: #f4efef; font-size: 35px; font-weight: 300;}
 
 body.home div#header { background: url(../images/bg_home.jpg) top left no-repeat;}
 
