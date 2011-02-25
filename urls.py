@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     url(r'^resources/', include('act.resources.urls')),
     url(r'^search/', include('haystack.urls')),
     url(r'^$', 'act.views.index', name='index'),
+    
+    url(r'^supersecretmailendpoint/$', "act.views.receive_email"),
 )
 
 # feeds
