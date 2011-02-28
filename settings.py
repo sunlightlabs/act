@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'debug_toolbar',
+    'cloudmailin',
     'mediasync',
     'feedinator',
     'tagging',
