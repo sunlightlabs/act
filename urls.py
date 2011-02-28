@@ -22,9 +22,9 @@ def postbymail(**kwargs):
         groups = match.groups()
         return "([%s](%s))" % (BLANK_RE.sub(' ', groups[0].strip()), groups[1])
 
-    sender = kwargs['from'][0]
-    title = kwargs['subject'][0]
-    text = kwargs['plain'][0]
+    sender = kwargs['from']
+    title = kwargs['subject']
+    text = kwargs['plain']
     
     text = text.replace('\x3D\x0A', '')
     text = text.replace('\x3D\x39\x32', "'")
@@ -51,11 +51,11 @@ def postbymail(**kwargs):
             fail_silently=True
         )
         
-    except User.DoesNotExist:
+    except Exception, e:
         
         send_mail(
             subject='[TransparencyCaucus] Sorry, unable to create new blog post',
-            message='%s' % text,
+            message='%s\n\n%s' % (e.message, text),
             from_email='contact@sunlightfoundation.com',
             recipient_list=[sender],
             fail_silently=True
