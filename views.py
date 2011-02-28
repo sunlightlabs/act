@@ -1,18 +1,11 @@
-from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
-from django.template.defaultfilters import slugify
-from django.views.decorators.csrf import csrf_exempt
 from act.events.models import Event
 from act.tweets.models import Tweet
 from blogdor.models import Post
 from feedinator.models import FeedEntry
 import re
-
-# for cloudmailin
-BLANK_RE = re.compile(r'\s+')
-LINK_RE = re.compile(r'\((.*?)<(.*?)>(.*?)\)', re.S)
 
 # for slug urls
 SLUG_RE = re.compile(r"(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[0-9a-zA-Z\-_]+)")

@@ -1,22 +1,30 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.template.defaultfilters import slugify
 from act import feeds
 from act.hello.views import Hello
+from blogdor.models import Post
 from cloudmailin.views import MailHandler
+import re
 
 admin.autodiscover()
+
+# for cloudmailin
+BLANK_RE = re.compile(r'\s+')
+LINK_RE = re.compile(r'\((.*?)<(.*?)>(.*?)\)', re.S)
 
 def postbymail(**kwargs):
     
     def link_sub(match):
         groups = match.groups()
-        return "([%s](%s))" % (BLANK_RE.sub(' ', groups[0]), groups[1])
+        return "([%s](%s))" % (BLANK_RE.sub(' ', groups[0].strip()), groups[1])
 
-    sender = kwargs['from']
-    title = kwargs['subject']
-    text = kwargs['plain']
+    sender = kwargs['from'][0]
+    title = kwargs['subject'][0]
+    text = kwargs['plain'][0]
     
     text = text.replace('\x3D\x0A', '')
     text = text.replace('\x3D\x39\x32', "'")
@@ -44,6 +52,7 @@ def postbymail(**kwargs):
         )
         
     except User.DoesNotExist:
+        
         send_mail(
             subject='[TransparencyCaucus] Sorry, unable to create new blog post',
             message='%s' % text,
