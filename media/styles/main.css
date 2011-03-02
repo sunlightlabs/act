@@ -4,7 +4,6 @@
  * Licensed under the BSD License: http://developer.yahoo.net/yui/license.txt
  */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,optgroup,button,p,blockquote,th,td{margin:0;padding:0;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}table{border-collapse:collapse;border-spacing:0;}caption,th{text-align:left;}ol,ul{list-style:none;}fieldset,img{border:0;}input,textarea,select,optgroup,option,button{font-family:inherit;font-size:100%;}button,input {width: auto;overflow: visible;}optgroup,address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;}
-dl li{list-style: none;}
 
 a:link {outline: none; color: #597378; }
 a:visited {outline: none; color: #597378; }
@@ -135,7 +134,7 @@ div#ltColumn { float: left; width: 595px; padding-left: 10px; margin-right: 25px
 div#rtColumn { float: left; width: 305px; margin-left: 25px; margin-top: 30px;}
 div#fullColumn { margin-bottom: 80px; }
 
-div.posts li, ol#listEvents li { background: url(../images/divider_post.png) center bottom no-repeat; padding-bottom: 25px; margin-bottom: 25px;}
+div.posts > ul > li, ol#listEvents > li { background: url(../images/divider_post.png) center bottom no-repeat; padding-bottom: 25px; margin-bottom: 25px;}
 body.blog div.posts li { padding-bottom: 35px; margin-bottom: 35px;}
 body.blog div.posts .postContent li, body.home div.posts .postContent li { background: none; margin-bottom: 20px; padding-bottom: 0px;}
 div.posts dl { color: #aaa09f; font-family: Georgia, "Times New Roman", Times, serif; font-style: oblique; }
@@ -256,5 +255,11 @@ ul.resources li a.title {
 ul.resources li p.source { font-style: italic; margin: 0; }
 ul.resources li div.description { margin-left: 2em; }
 ul.resources li div.description p { margin-top: 1em; }
+
+ul.tags li {
+	display: inline-block;
+	margin: 0 0.5em;
+	padding: 0;
+}
 
 .clear{ clear: both;}

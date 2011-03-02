@@ -29,7 +29,7 @@
 		{% if tags %}
 		    <div>
 		        <span>Tags:</span>
-		        <ul>
+		        <ul class="tags">
 		            {% for tag in tags %}
 		            	<li><a href="{% url blogdor_tag tag %}">{{ tag }}</a></li>
 		            {% endfor %}

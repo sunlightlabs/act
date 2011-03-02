@@ -75,7 +75,7 @@ MEDIASYNC = {
     'AWS_BUCKET': "assets.sunlightfoundation.com",
     'AWS_PREFIX': "act/2.0",
     'DOCTYPE': 'xhtml',
-    'CACHE_BUSTER': 1234567890,
+    'CACHE_BUSTER': 201103021519,
     'JOINED': {
         'scripts/production.js': (
             'scripts/jquery-1.5.min.js',
