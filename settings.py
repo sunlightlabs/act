@@ -14,9 +14,11 @@ USE_L10N = True
 
 SITE_ID = 1
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-MEDIA_URL = '/media/'
-ADMIN_MEDIA_PREFIX = "http://assets.sunlightfoundation.com/admin/1.2.1/"
+MEDIA_ROOT = ''
+MEDIA_URL = ''
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'media')
+STATIC_URL = '/media/'
+ADMIN_MEDIA_PREFIX = "http://assets.sunlightfoundation.com/admin/1.3/"
 
 SECRET_KEY = '***REMOVED***'
 
