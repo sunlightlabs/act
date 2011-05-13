@@ -36,9 +36,10 @@ class Resource(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     source = models.CharField(max_length=255, blank=True)
+    order = models.IntegerField(default=100)
     
     class Meta:
-        ordering = ('-id',)
+        ordering = ('-order',)
     
     def __unicode__(self):
         return self.title
