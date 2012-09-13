@@ -1,5 +1,5 @@
 /*
- * YUI Resect CSS version: 2.2.2 
+ * YUI Resect CSS version: 2.2.2
  * Copyright (c) 2007, Yahoo! Inc. All rights reserved.
  * Licensed under the BSD License: http://developer.yahoo.net/yui/license.txt
  */
@@ -205,8 +205,8 @@ button { text-indent: -9999em; display: block; cursor: pointer; border: none;}
 #footerWrapper { background: url(../images/footer_wrapper.jpg) center 8px repeat-x; height: 146px;}
 #privacyPolicy { padding: 0 60px;}
 #footer a:link, #footer a:visited, #footer a:hover, #footer a:active { color: #423d3d;}
-#footer p { color: #e1e0e0; font-size: 90%; border-left: 1px dashed #c4962d; float: left; width: 665px; padding-left: 20px; margin-left: 20px; padding-top: 5px; line-height: 16px;}
-#foundationLogo { background: url(../images/logo_sunlight.png) top left no-repeat; width: 110px; height: 50px; display: block; float: left; text-indent: -9999em;}
+#footer p { color: #e1e0e0; font-size: 90%; border-left: 1px dashed #c4962d; float: left; width: 655px; padding-left: 20px; margin-left: 20px; padding-top: 5px; line-height: 16px;}
+#foundationLogo { background: url(../images/logo_sunlight.png) top left no-repeat; width: 122px; height: 36px; display: block; float: left; text-indent: -9999em;}
 
 #moreInfo {  padding: 60px 0 25px; font-family: Georgia, "Times New Roman", Times, serif; font-style: oblique; font-size: 115%; width: 700px; margin: 0 auto;}
 #moreInfo span { color: #fff; float: left; margin-right: 10px;}
