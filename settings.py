@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
     'django.contrib.messages',
     'debug_toolbar',
     'cloudmailin',
@@ -71,12 +72,18 @@ INSTALLED_APPS = (
 
 EMAIL_BACKEND = 'postmark.django_backend.EmailBackend'
 
+AWS_ACCESS_KEY_ID = "***REMOVED***"
+AWS_SECRET_ACCESS_KEY = "***REMOVED***"
+AWS_STORAGE_BUCKET_NAME = "assets.sunlightfoundation.com"
+AWS_LOCATION = "act/2.1"
+AWS_IS_GZIPPED = True
+
 MEDIASYNC = {
     'BACKEND': 'mediasync.backends.s3',
-    'AWS_KEY': "***REMOVED***",
-    'AWS_SECRET': "***REMOVED***",
-    'AWS_BUCKET': "assets.sunlightfoundation.com",
-    'AWS_PREFIX': "act/2.0",
+    'AWS_KEY': AWS_ACCESS_KEY_ID,
+    'AWS_SECRET': AWS_SECRET_ACCESS_KEY,
+    'AWS_BUCKET': AWS_STORAGE_BUCKET_NAME,
+    'AWS_PREFIX': AWS_LOCATION,
     'DOCTYPE': 'xhtml',
     'CACHE_BUSTER': 201103021519,
     'JOINED': {

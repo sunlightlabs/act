@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load media %}
+{% load staticfiles %}
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -9,10 +9,10 @@
 		<script type="text/javascript" src="http://use.typekit.com/pib3mvd.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 		<link rel="alternate" type="application/rss+xml" title="Advisory Committee on Transparency blog posts" href="{% url feed_latest_posts %}">
-		<link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT' rel='stylesheet' type='text/css'>
-		{% css "styles/main.css" %}
-		 <!--[if IE 6]>{% css "styles/buggy.css" %}<![endif]-->
-         <!--[if IE 7]>{% css "styles/buggy7.css" %}<![endif]-->
+		<link href='http://fonts.googleapis.com/css?family=OFL+Sorts+Mill+Goudy+TT' rel='stylesheet' >
+		<link rel="stylesheet" href="{% static "styles/main.css" %}">
+		 <!--[if IE 6]><link rel="stylesheet" href="{% static "styles/buggy.css" %}"><![endif]-->
+         <!--[if IE 7]><link rel="stylesheet" href="{% static "styles/buggy7.css" %}"><![endif]-->
 	</head>
 	<body class="{% block bodyclass %}act{% endblock %}">
 		<div id="header">
@@ -58,7 +58,7 @@
 				</div>
 			</div>
 		</div>
-		{% js "scripts/production.js" %}
+		<script src="{% static "scripts/production.js" %}"></script>
 		{% block script %}{% endblock %}
 		<script>
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
