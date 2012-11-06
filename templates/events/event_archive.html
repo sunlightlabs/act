@@ -51,7 +51,7 @@
 		<h3>Events by year</h3>
 		<div class="moduleRight">
 			<ol>
-				{% for y in years %}
+				{% for y in years reversed %}
 					<li><a href="{% url event_archive y %}">{{ y }}</a></li>
 				{% endfor %}
 			</ol>

@@ -16,8 +16,12 @@ SITE_ID = 1
 
 MEDIA_ROOT = ''
 MEDIA_URL = ''
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'media')
-STATIC_URL = '/media/'
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static_root')
+STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'mediasync.CachedMediaSyncStorage'
+
 ADMIN_MEDIA_PREFIX = "http://assets.sunlightfoundation.com/admin/1.3/"
 
 SECRET_KEY = '***REMOVED***'
@@ -35,6 +39,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'mediasync.MediaSyncMiddleware',
 )
 
 ROOT_URLCONF = 'act.urls'
@@ -56,7 +61,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'debug_toolbar',
     'cloudmailin',
-    'mediasync',
     'feedinator',
     'tagging',
     'honeypot',
@@ -78,22 +82,22 @@ AWS_STORAGE_BUCKET_NAME = "assets.sunlightfoundation.com"
 AWS_LOCATION = "act/2.1"
 AWS_IS_GZIPPED = True
 
-MEDIASYNC = {
-    'BACKEND': 'mediasync.backends.s3',
-    'AWS_KEY': AWS_ACCESS_KEY_ID,
-    'AWS_SECRET': AWS_SECRET_ACCESS_KEY,
-    'AWS_BUCKET': AWS_STORAGE_BUCKET_NAME,
-    'AWS_PREFIX': AWS_LOCATION,
-    'DOCTYPE': 'xhtml',
-    'CACHE_BUSTER': 201103021519,
-    'JOINED': {
-        'scripts/production.js': (
-            'scripts/jquery-1.5.min.js',
-            'scripts/jquery.placehold-0.2.min.js',
-            'scripts/act.js',
-        ),
-    }
-}
+# MEDIASYNC = {
+#     'BACKEND': 'mediasync.backends.s3',
+#     'AWS_KEY': AWS_ACCESS_KEY_ID,
+#     'AWS_SECRET': AWS_SECRET_ACCESS_KEY,
+#     'AWS_BUCKET': AWS_STORAGE_BUCKET_NAME,
+#     'AWS_PREFIX': AWS_LOCATION,
+#     'DOCTYPE': 'xhtml',
+#     'CACHE_BUSTER': 201103021519,
+#     'JOINED': {
+#         'scripts/production.js': (
+#             'scripts/jquery-1.5.min.js',
+#             'scripts/jquery.placehold-0.2.min.js',
+#             'scripts/act.js',
+#         ),
+#     }
+# }
 
 INTERNAL_IPS = ('127.0.0.1',)
 

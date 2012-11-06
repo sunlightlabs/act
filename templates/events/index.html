@@ -28,7 +28,7 @@
 										- {{ event.end_time|time:"g:i a" }}
 									{% endif %}
 								</span>
-							{% endif %}	
+							{% endif %}
 							{% if event.location %}
 								<span>{{ event.location }}</span>
 							{% endif %}
@@ -82,10 +82,18 @@
 					</li>
 				{% endfor %}
 			</ol>
-			<a class="viewMore" href="{% url event_archive "2012" %}">View All Events</a>
 		</div>
 	</div>
 	<div id="rtColumn">
+		<h3>Events by year</h3>
+		<div class="moduleRight">
+			<ol>
+				{% for y in years reversed %}
+					<li><a href="{% url event_archive y %}">{{ y }}</a></li>
+				{% endfor %}
+			</ol>
+			<div class="clear"></div>
+		</div>
 		{% include "includes/sidebar_upcomingevents.html" %}
 	</div>
 {% endblock %}

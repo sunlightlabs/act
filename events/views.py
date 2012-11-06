@@ -8,11 +8,13 @@ import datetime
 
 def event_index(request):
     now = datetime.datetime.now()
+    min_year = Event.objects.aggregate(min_date=Min('start_date'))['min_date'].year
     data = {
         'upcoming': Event.objects.upcoming()[:3],
         'recent': Event.objects.recent().filter(start_date__year=now.year),
         'tags': Tag.objects.usage_for_model(Event),
-        'year': now.year
+        'year': now.year,
+        'years': [y for y in range(min_year, now.year + 1)],
     }
     return render_to_response('events/index.html', data)
 
