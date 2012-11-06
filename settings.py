@@ -81,6 +81,7 @@ AWS_SECRET_ACCESS_KEY = "***REMOVED***"
 AWS_STORAGE_BUCKET_NAME = "assets.sunlightfoundation.com"
 AWS_LOCATION = "act/2.1"
 AWS_IS_GZIPPED = True
+AWS_S3_SECURE_URLS = False
 
 # MEDIASYNC = {
 #     'BACKEND': 'mediasync.backends.s3',
