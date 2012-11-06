@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'act.resources',
     'act.tweets',
     'act.blogimport',
+    'act',
     'gunicorn',
 )
 
