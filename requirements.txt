@@ -22,3 +22,5 @@ django-haystack==1.2.7
 
 # deployment
 gunicorn
+
+requests
