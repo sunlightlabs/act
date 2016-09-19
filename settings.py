@@ -24,7 +24,7 @@ STATICFILES_STORAGE = 'mediasync.CachedMediaSyncStorage'
 
 ADMIN_MEDIA_PREFIX = "http://assets.sunlightfoundation.com/admin/1.3/"
 
-SECRET_KEY = '***REMOVED***'
+SECRET_KEY = ''
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -76,8 +76,8 @@ INSTALLED_APPS = (
 
 EMAIL_BACKEND = 'postmark.django_backend.EmailBackend'
 
-AWS_ACCESS_KEY_ID = "***REMOVED***"
-AWS_SECRET_ACCESS_KEY = "***REMOVED***"
+AWS_ACCESS_KEY_ID = ""
+AWS_SECRET_ACCESS_KEY = ""
 AWS_STORAGE_BUCKET_NAME = "assets.sunlightfoundation.com"
 AWS_LOCATION = "act/2.1"
 AWS_IS_GZIPPED = False
